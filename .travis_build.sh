@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cd db2.1_test
+cd AwesomeApp
 
 mvn test

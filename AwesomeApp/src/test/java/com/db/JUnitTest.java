@@ -20,5 +20,16 @@ public class JUnitTest {
     @Test
     public void myTestMethod() {
         assertEquals(true, 1 == 1);
+        assertEquals(5, toCalculate(5));
     }
+    
+    private static int toCalculate(int n) {
+         int count = 0;
+         int sum = 1;
+         while (count++ < n) {
+             sum += toCalculate(count);
+             System.out.println(sum);
+         }
+         return sum;
+     }
 }
