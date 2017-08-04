@@ -1,50 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.db.awesomeapp;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import com.db.awesomeapp.models.CounterParty;
+import com.db.awesomeapp.controllers.CounterPartyController;
+import com.db.awesomeapp.controllers.DealController;
+import com.db.awesomeapp.models.Deal;
+import java.util.List;
 
 /**
  *
  * @author Graduate
  */
 public class Main {
-
     public static void main(String[] args) {
-        try {
-            Connection connection = null;
-            try {
-                connection = DriverManager.getConnection("jdbc:mysql://192.168.99.100:3306/db_grad_cs_1917", "test-user", "test-user");
-            } catch (SQLException ex) {
-                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-            Statement statement = null;
-            
-            if (connection != null) {
-                statement = connection.createStatement();
-            }
-            
-            ResultSet resultSet = null;
-            if (statement != null) {
-                resultSet = statement.executeQuery("select * from db_grad_cs_1917.users");
-            }
-            
-            while (resultSet.next()) {
-                System.out.println(resultSet.getString("user_id"));
-            }
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        CounterPartyController p = new CounterPartyController();
+        List<CounterParty> asd = p.getAll();
+        
+        DealController dp = new DealController();
+        Deal deal = dp.getEntityById(Integer.toString(20005));
+        List<Deal> asd1 = dp.getAll();
+        
+        //User test = uc.getEntityById("debs");
+        
     }
 }
