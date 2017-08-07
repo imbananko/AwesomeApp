@@ -17,13 +17,3 @@
 *.zip
 *.tar.gz
 *.rar
-target/
-nbproject/
-.idea/
-*.iml
-
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-/AwesomeApp/target/
-/AwesomeApp/nbproject/
