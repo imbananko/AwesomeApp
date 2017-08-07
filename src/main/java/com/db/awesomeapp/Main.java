@@ -1,9 +1,11 @@
 package com.db.awesomeapp;
 
+import com.db.TestConnectionServlet;
 import com.db.awesomeapp.models.CounterParty;
 import com.db.awesomeapp.controllers.CounterPartyController;
 import com.db.awesomeapp.controllers.DealController;
 import com.db.awesomeapp.models.Deal;
+import java.io.InputStream;
 import java.util.List;
 
 /**
@@ -12,13 +14,10 @@ import java.util.List;
  */
 public class Main {
     public static void main(String[] args) {
-        CounterPartyController p = new CounterPartyController();
-        List<CounterParty> asd = p.getAll();
+        CounterPartyController cpc = new CounterPartyController();
+        CounterParty cp = cpc.getEntityById("703");
         
-        DealController dp = new DealController();
-        Deal deal = dp.getEntityById(Integer.toString(20005));
-        List<Deal> asd1 = dp.getAll();
-        
+        //InputStream response = TestConnectionServlet.getInputStream();
         //User test = uc.getEntityById("debs");
         
     }

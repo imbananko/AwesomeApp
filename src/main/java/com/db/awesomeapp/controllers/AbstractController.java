@@ -12,13 +12,22 @@ import java.util.logging.Logger;
  *
  * @author Graduate
  */
-public abstract class AbstractController<E, T> {
+public abstract class AbstractController<E> {
 
     private Connection connection;
 
+    public Connection getConnection() {
+        return connection;
+    }
+
     public AbstractController() {
         try {
-            connection = connection = DriverManager.getConnection("jdbc:mysql://192.168.99.100:3306/db_grad_cs_1917", "test-user", "test-user");
+            //Class.forName("com.mysql.jdbc.Driver");
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver ());
+            connection = DriverManager.getConnection("jdbc:mysql://192.168.99.100:3306/db_grad_cs_1917", "test-user", "test-user");
+
+            //DriverManager.registerDriver(new com.mysql.jdbc.Driver ());
+
         } catch (SQLException ex) {
             Logger.getLogger(AbstractController.class.getName()).log(Level.SEVERE, null, ex);
         }
