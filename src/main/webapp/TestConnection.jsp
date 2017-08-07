@@ -26,4 +26,6 @@
         <%= request.getAttribute("statusInfo") %>
     </h3>
 
+    <h3> VLAD DID IT! </h3>
+
 </html>
