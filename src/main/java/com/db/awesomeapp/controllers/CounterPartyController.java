@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  *
  * @author Graduate
  */
-public class CounterPartyController extends AbstractController<CounterParty, Integer> {
+public class CounterPartyController extends AbstractController<CounterParty> {
 
     public static final String SELECT_ALL_PARTIES = "SELECT * FROM db_grad_cs_1917.counterparty LIMIT 0, 1000";
     public static final String SELECT_PARTY = "SELECT * FROM db_grad_cs_1917.counterparty WHERE counterparty_id = ";
@@ -29,7 +29,7 @@ public class CounterPartyController extends AbstractController<CounterParty, Int
      */
     @Override
     public List<CounterParty> getAll() {
-        List<CounterParty> list = new LinkedList<>();
+        List<CounterParty> list = new LinkedList<CounterParty>();
         PreparedStatement ps = getPrepareStatement(SELECT_ALL_PARTIES);
         try {
             ResultSet rs = ps.executeQuery();

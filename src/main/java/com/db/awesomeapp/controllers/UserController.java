@@ -13,7 +13,7 @@ import java.util.logging.Logger;
  *
  * @author Graduate
  */
-public class UserController extends AbstractController<User, Integer> {
+public class UserController extends AbstractController<User> {
 
     public static final String SELECT_ALL_USERS = "SELECT * FROM db_grad_cs_1917.users";
     public static final String SELECT_USER = "SELECT * FROM db_grad_cs_1917.users WHERE user_id = ";
@@ -24,7 +24,7 @@ public class UserController extends AbstractController<User, Integer> {
      */
     @Override
     public List<User> getAll() {
-        List<User> list = new LinkedList<>();
+        List<User> list = new LinkedList<User>();
         PreparedStatement ps = getPrepareStatement(SELECT_ALL_USERS);
         try {
             ResultSet rs = ps.executeQuery();

@@ -28,7 +28,7 @@ public class DealController extends AbstractController {
     
     @Override
     public List getAll() {
-        List<Deal> list = new LinkedList<>();
+        List<Deal> list = new LinkedList<Deal>();
         PreparedStatement ps = getPrepareStatement(SELECT_ALL_DEALS);
         try {
             ResultSet rs = ps.executeQuery();
