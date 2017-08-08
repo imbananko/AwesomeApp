@@ -1,8 +1,8 @@
 package com.db;
 
 
-import com.db.awesomeapp.controllers.CounterPartyController;
-import com.db.awesomeapp.models.CounterParty;
+import com.db.awesomeapp.ConnectionHandler;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -16,9 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 public class TestConnectionServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse resp)
             throws ServletException, IOException {
-        CounterPartyController cpc = new CounterPartyController();
+        ConnectionHandler connectionHandler = new ConnectionHandler();
         try {
-            Connection conn = cpc.getConnection();
+            Connection conn = connectionHandler.getConnection();
             if ( conn != null && conn.isValid(3)) {
                 request.setAttribute("connectionStatus", "Connected <br/>");
                 request.setAttribute("statusInfo", "Connection: " + conn.toString() + "<br/> Table is: " + conn.getCatalog());
@@ -30,10 +30,6 @@ public class TestConnectionServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        CounterParty cp = cpc.getEntityById("703");
-        request.setAttribute("nameOfParty", cp.getName());
-        request.setAttribute("date", cp.getRegisteredDate());
-        
         getServletContext().getRequestDispatcher("/TestConnection.jsp").forward(request, resp);
     }
 }

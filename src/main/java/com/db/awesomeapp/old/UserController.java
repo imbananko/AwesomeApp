@@ -1,4 +1,4 @@
-package com.db.awesomeapp.controllers;
+package com.db.awesomeapp.old;
 
 import com.db.awesomeapp.models.User;
 import java.sql.PreparedStatement;

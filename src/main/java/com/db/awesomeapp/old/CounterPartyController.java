@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.db.awesomeapp.controllers;
+package com.db.awesomeapp.old;
 
 import com.db.awesomeapp.models.CounterParty;
 import java.sql.PreparedStatement;

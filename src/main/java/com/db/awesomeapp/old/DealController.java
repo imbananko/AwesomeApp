@@ -3,11 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.db.awesomeapp.controllers;
 
-import static com.db.awesomeapp.controllers.UserController.SELECT_ALL_USERS;
+
+
 import com.db.awesomeapp.models.Deal;
 import com.db.awesomeapp.models.User;
+import com.db.awesomeapp.old.AbstractController;
+import com.db.awesomeapp.old.UserController;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

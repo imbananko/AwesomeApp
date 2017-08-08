@@ -2,8 +2,7 @@ package com.db.awesomeapp;
 
 import com.db.TestConnectionServlet;
 import com.db.awesomeapp.models.CounterParty;
-import com.db.awesomeapp.controllers.CounterPartyController;
-import com.db.awesomeapp.controllers.DealController;
+import com.db.awesomeapp.old.CounterPartyController;
 import com.db.awesomeapp.models.Deal;
 import java.io.InputStream;
 import java.util.List;
