@@ -26,7 +26,7 @@
         <%= request.getAttribute("statusInfo") %>
     </h3>
 
-    <h3> VLAD DID IT! </h3>
+    <h3> why are you not working? </h3>
 
 
 </html>
