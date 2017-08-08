@@ -15,9 +15,10 @@ import java.util.Map;
 
 public class MySqlDaoFactory implements DaoFactory {
 
-    private String user = "test-user";//Логин пользователя
-    private String password = "test-user";//Пароль пользователя
-    private String url = "jdbc:mysql://192.168.99.100:3306/db_grad_cs_1917";//URL адрес
+    private String user = "root";//Логин пользователя
+    private String password = "root";//Пароль пользователя
+    //private String url = "jdbc:mysql://192.168.99.100:3306/db_grad_cs_1917";//URL адрес
+    private String url = "jdbc:mysql://localhost:3306/db_grad_cs_1917";//URL адрес
     private String driver = "com.mysql.jdbc.Driver";//Имя драйвера
     private Map<Class, DaoCreator> creators;
 

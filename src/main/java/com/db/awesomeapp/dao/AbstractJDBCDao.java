@@ -17,7 +17,8 @@ import java.util.List;
  */
 public abstract class AbstractJDBCDao<T extends Identified<PK>, PK extends Integer> implements GenericDao<T, PK> {
 
-    private Connection connection;
+    protected Connection connection;
+
 
     /**
      * Возвращает sql запрос для получения всех записей.

@@ -13,6 +13,7 @@ import java.util.List;
 
 import com.db.awesomeapp.dao.GenericDao;
 import com.db.awesomeapp.dao.Identified;
+import com.db.awesomeapp.exceptions.PersistException;
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -46,7 +47,7 @@ public abstract class GenericDaoTest<Context> {
     public abstract Context context();
 
     @Test
-    public void testCreate() throws Exception {
+    public void testCreate() throws PersistException {
         Identified dto = dao().create();
 
         Assert.assertNotNull(dto);
@@ -100,4 +101,5 @@ public abstract class GenericDaoTest<Context> {
         this.daoClass = clazz;
         this.notPersistedDto = notPersistedDto;
     }
+
 }

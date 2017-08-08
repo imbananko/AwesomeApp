@@ -20,6 +20,27 @@ public class MySqlDealDao extends AbstractJDBCDao<Deal, Integer> {
     }
 
     @Override
+    public Deal getByPK(Integer key) throws PersistException {
+        List<Deal> list;
+        String sql = getSelectQuery();
+        sql += " WHERE deal_id = ?";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, key);
+            ResultSet rs = statement.executeQuery();
+            list = parseResultSet(rs);
+        } catch (Exception e) {
+            throw new PersistException(e);
+        }
+        if (list == null || list.size() == 0) {
+            throw new PersistException("Record with PK = " + key + " not found.");
+        }
+        if (list.size() > 1) {
+            throw new PersistException("Received more than one record.");
+        }
+        return list.iterator().next();
+    }
+
+    @Override
     public String getSelectQuery() {
         return "SELECT * FROM db_grad_cs_1917.deal";
     }
