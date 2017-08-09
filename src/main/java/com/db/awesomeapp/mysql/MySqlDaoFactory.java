@@ -15,15 +15,15 @@ import java.util.Map;
 
 public class MySqlDaoFactory implements DaoFactory {
 
-    private String user = "root";//Логин пользователя
-    private String password = "root";//Пароль пользователя
+    private String user = "test-user";//Логин пользователя
+    private String password = "test-user";//Пароль пользователя
     //private String url = "jdbc:mysql://192.168.99.100:3306/db_grad_cs_1917";//URL адрес
-    private String url = "jdbc:mysql://localhost:3306/db_grad_cs_1917";//URL адрес
+    private String url = "jdbc:mysql://192.168.99.100:3306/db_grad_cs_1917";//URL адрес
     private String driver = "com.mysql.jdbc.Driver";//Имя драйвера
     private Map<Class, DaoCreator> creators;
 
     public Connection getContext() throws PersistException {
-        Connection connection = null;
+        Connection connection;
         try {
             connection = DriverManager.getConnection(url, user, password);
         } catch (SQLException e) {
@@ -48,7 +48,7 @@ public class MySqlDaoFactory implements DaoFactory {
             e.printStackTrace();
         }
 
-        creators = new HashMap<Class, DaoCreator>();
+        creators = new HashMap<>();
         creators.put(Deal.class, new DaoCreator<Connection>() {
             @Override
             public GenericDao create(Connection connection) {

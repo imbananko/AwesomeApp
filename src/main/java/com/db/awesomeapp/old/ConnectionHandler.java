@@ -1,4 +1,4 @@
-package com.db.awesomeapp;
+package com.db.awesomeapp.old;
 
 import com.db.awesomeapp.old.AbstractController;
 
