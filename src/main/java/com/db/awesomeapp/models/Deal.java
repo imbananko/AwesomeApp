@@ -5,16 +5,13 @@
  */
 package com.db.awesomeapp.models;
 
-import com.db.awesomeapp.dao.Identified;
-
-import java.io.Serializable;
 import java.sql.Date;
 
 /**
  *
  * @author Graduate
  */
-public class Deal implements Serializable, Identified<Integer> {
+public class Deal {
     private int id; 
     private Date dealTime;
     private int counterPartyId;
@@ -29,6 +26,10 @@ public class Deal implements Serializable, Identified<Integer> {
 
     public Date getDealTime() {
         return dealTime;
+    }
+
+    public Deal() {
+        dealTime = new Date(2017, 10, 10);
     }
 
     public int getCounterPartyId() {

@@ -1,12 +1,10 @@
 package com.db.awesomeapp.models;
 
-import java.io.Serializable;
-
 /**
  *
  * @author Graduate
  */
-public class User implements Serializable {
+public class User {
 
     private String id;
     private String password;

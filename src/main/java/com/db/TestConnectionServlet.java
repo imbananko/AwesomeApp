@@ -1,9 +1,6 @@
 package com.db;
 
-
-import com.db.awesomeapp.dao.DaoFactory;
-import com.db.awesomeapp.exceptions.PersistException;
-import com.db.awesomeapp.mysql.MySqlDaoFactory;
+import com.db.awesomeapp.mysql.ConnectionHandler;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,11 +16,12 @@ public class TestConnectionServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse resp)
             throws ServletException, IOException {
 
-        DaoFactory daoFactory = new MySqlDaoFactory();
+        ConnectionHandler handler = new ConnectionHandler();
+
         Connection connection = null;
         try {
-            connection = (Connection) daoFactory.getContext();
-        } catch (PersistException e) {
+            connection = handler.getConnection();
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

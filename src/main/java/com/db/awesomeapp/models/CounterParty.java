@@ -12,7 +12,7 @@ import java.sql.Date;
  *
  * @author Graduate
  */
-public class CounterParty implements Serializable{
+public class CounterParty {
 
     private int counterPartyId;
     private String name;
