@@ -9,6 +9,8 @@ The awesome application which visualize data from MySQL database.
 * [Maven](https://maven.apache.org/) - Dependency Management
 * [jMock](http://www.jmock.org/) - Used to mock object for testing
 * [WhatsApp](https://www.whatsapp.com/) - The communication provider
+* [Trello](https://trello.com) - The task-tracker used
+
 
 ## Contributing
 
