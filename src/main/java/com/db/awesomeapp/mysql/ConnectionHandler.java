@@ -19,12 +19,12 @@ public class ConnectionHandler {
         }
     }
 
-    public Connection getConnection() {
+    public Connection getConnection() throws SQLException {
         Connection connection = null;
         try {
             connection = DriverManager.getConnection(url, user, password);
         } catch (SQLException e) {
-            //todo
+            throw new SQLException(e);
         }
         return connection;
     }
