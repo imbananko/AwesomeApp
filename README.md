@@ -1,4 +1,5 @@
 # AwesomeApp 
+[![Build Status](https://travis-ci.org/imbananko/AwesomeApp.svg?branch=master)](https://travis-ci.org/imbananko/AwesomeApp)
 
 The awesome application which visualize data from MySQL database.
 
@@ -30,6 +31,6 @@ This project is licensed under the commercial license - ask [here](https://www.d
 
 ## Acknowledgments
 
-* King regards to:
+  King regards to:
 * [Egor](https://github.com/yeplastun) for the mentoring and directing.
 * [Alex](https://github.com/ignorer) for the git consulting.
