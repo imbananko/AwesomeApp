@@ -5,14 +5,13 @@
  */
 package com.db.awesomeapp.models;
 
-import java.io.Serializable;
 import java.sql.Date;
 
 /**
  *
  * @author Graduate
  */
-public class Deal implements Serializable{
+public class Deal {
     private int id; 
     private Date dealTime;
     private int counterPartyId;
@@ -21,12 +20,16 @@ public class Deal implements Serializable{
     private double amount;
     private int quantity;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
     public Date getDealTime() {
         return dealTime;
+    }
+
+    public Deal() {
+        dealTime = new Date(2017, 10, 10);
     }
 
     public int getCounterPartyId() {
