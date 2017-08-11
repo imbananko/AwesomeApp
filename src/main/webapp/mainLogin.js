@@ -10,20 +10,27 @@
  Author     : Richard
  */
 
-var showData = document.getElementById("dealMessage");
+
 
 
 function verifyUser() {
     var ajaxRequest = new XMLHttpRequest();
     var userId = document.getElementById("f_userid");
-    var password = document.getElementBtId("f_password")
-    var url = "login.jsp?id=" + escape(userId.value)+"&pwd" + escape(password.value);
+    var password = document.getElementById("f_password");
+    var url = "login.jsp?id=" + escape(userId.value) + "&pwd=" + escape(password.value);
     //var url = 'https://learnwebcode.github.io/json-example/animals-1.json';
 
 
-    $.ajax({url: url, dataType: "html", success: function (result)
+    $.ajax({url: url, dataType: "text", success: function (result)
         {
-            renderData(result);
+            var data = document.getElementById("showData");
+            //data.insertAdjacentHTML("beforeend", result.length);
+            if (result.length == 17) {
+                load_jsp();
+            } else {
+
+                data.innerHTML += "invalid";
+            }
             //setMessageUsingDOM( result );
         }});
     /*
@@ -41,10 +48,16 @@ function verifyUser() {
 
 }
 
-function renderData(message) {
+function renderData() {
     //$('dealMessage').html("<div>ERROR IN PAGE</div>");
     //document.write("test");
     //var dealData = JSON.parse(message);
-    document.write(message);
+    var data = document.getElementById("showData");
+    data.innerHTML += "invalid";
 
+}
+
+function load_jsp() {
+    //document.write();
+    document.getElementById("showData").innerHTML = '<object type="text/html" data="indexR4.jsp" ></object>';
 }

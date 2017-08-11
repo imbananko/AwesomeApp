@@ -14,8 +14,8 @@
     String userId = request.getParameter("id");
     String userPwd = request.getParameter("pwd");
     String validPwd;
-    String result = "<h1>INVALID USER ID AND PASSWORD</h1>";
-    
+    String result = "";
+    //String result = "<h1>INVALID USER ID AND PASSWORD</h1>";
 
     if (userId != "" || userId != null) {
         ConnectionHandler connectionHandler = new ConnectionHandler();
@@ -23,16 +23,18 @@
         UserDao userSearch = new UserDao(connectionHandler.getConnection());
         user = userSearch.getByPK(userId);
         validPwd = user.getPassword();
-        
-        if(validPwd.equals(userPwd)) {
-            
-            %>
-            <jsp:forward page="indexR4.jsp" />
-            
-            <%
 
-       
-        } else{
+        if (validPwd.equals(userPwd)) {
+
+            result = "true";
+
+            out.flush();
+
+            out.print(result);
+
+        } else {
+            out.flush();
+
             out.print(result);
         }
 

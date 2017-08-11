@@ -37,8 +37,8 @@ function getDealByID() {
 function renderData(message) {
     //$('dealMessage').html("<div>ERROR IN PAGE</div>");
     //document.write("test");
-    //var dealData = JSON.parse(message);
-    document.write(message);
+    var Data = document.getElementById("dataShow");
+    Data.insertAdjacentHTML("beforeend",message);
 
 }
 
