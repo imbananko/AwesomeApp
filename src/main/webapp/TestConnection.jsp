@@ -1,3 +1,9 @@
+<%-- 
+    Document   : indexR3.jsp
+    Created on : 14-Aug-2017, 09:59:25
+    Author     : Vlad, Richard, Jackie
+--%>
+
 <%@page import="java.util.logging.Logger"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.util.logging.Level"%>
@@ -21,11 +27,7 @@
 
 <!DOCTYPE html>
 <html>
-
-    <div class="alert alert-info alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-           <span aria-hidden="true">&times;</span>
-        </button>
-        <strong> <%= request.getAttribute("connectionStatus") %> </strong> 
+    <div class="alert alert-info" role="alert">
+        <h3> <%= request.getAttribute("connectionStatus") %> </h3>
     </div>
 </html>
