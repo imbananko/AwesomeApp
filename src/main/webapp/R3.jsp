@@ -17,33 +17,30 @@
     String result = "<h1>Input is INVALID</h1>";
 
     if (table != "" || table != null) {
-        
+
         ConnectionHandler connectionHandler = new ConnectionHandler();
-       
+
         List<Deal> deal;
         List<CounterParty> counterparty;
-        
+
         //CounterParty counterparty = new CounterParty();
-        
-        switch(table){
-                case "deal": 
-                    DealDao dealSearch = new DealDao(connectionHandler.getConnection());
-                    deal = dealSearch.getTopOf(20);
-                    result = deal.toString();
-                    break;
-                    
-                case "counterparty":
-                    CounterPartyDao counterpartySearch = new CounterPartyDao(connectionHandler.getConnection());
-                    counterparty = counterpartySearch.getAll();
-                    result = counterparty.toString();
-                    break;
-                    
-                    
-                case "instrument":
-                    break;
-        }          
-                   
-        
+        switch (table) {
+            case "deal":
+                DealDao dealSearch = new DealDao(connectionHandler.getConnection());
+                deal = dealSearch.getTopOf(20);
+                result = deal.toString();
+                break;
+
+            case "counterparty":
+                CounterPartyDao counterpartySearch = new CounterPartyDao(connectionHandler.getConnection());
+                counterparty = counterpartySearch.getAll();
+                result = counterparty.toString();
+                break;
+
+            case "instrument":
+                break;
+        }
+
         out.flush();
         out.print(result);
 
