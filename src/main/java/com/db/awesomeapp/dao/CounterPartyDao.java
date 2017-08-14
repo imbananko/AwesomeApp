@@ -5,6 +5,7 @@ import com.db.awesomeapp.models.CounterParty;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -26,22 +27,22 @@ public class CounterPartyDao extends AbstractDao<CounterParty, Integer> {
     }
 
     @Override
-    public CounterParty getByPK(Integer key) {
-        List<CounterParty> list = new LinkedList<>();
+    public CounterParty getByPK(Integer key) throws SQLException {
+        List<CounterParty> list;
         String sql = getSelectQuery();
         sql += " WHERE counterparty_id = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, (Integer) key);
             ResultSet rs = statement.executeQuery();
             list = parseResultSet(rs);
-        } catch (Exception e) {
-
+        } catch (SQLException e) {
+            throw new SQLException(e);
         }
         if (list == null || list.size() == 0) {
-            //todo //throw new PersistException("Record with PK = " + key + " not found.");
+            throw new SQLException("Record with PK = " + key + " not found.");
         }
         if (list.size() > 1) {
-            //todo //throw new PersistException("Received more than one record.");
+            throw new SQLException("Received more than one record.");
         }
         return list.iterator().next();
     }
@@ -61,7 +62,7 @@ public class CounterPartyDao extends AbstractDao<CounterParty, Integer> {
     }
 
     @Override
-    protected List<CounterParty> parseResultSet(ResultSet rs) {
+    protected List<CounterParty> parseResultSet(ResultSet rs) throws SQLException {
         LinkedList<CounterParty> result = new LinkedList<>();
         try {
             while (rs.next()) {
@@ -73,33 +74,21 @@ public class CounterPartyDao extends AbstractDao<CounterParty, Integer> {
                 party.setRegisteredDate(rs.getDate("counterparty_date_registered"));
                 result.add(party);
             }
-        } catch (Exception e) {
-            //todo throw new PersistException(e);
+        } catch (SQLException e) {
+            throw new SQLException(e);
         }
         return result;
     }
 
     @Override
-    protected void prepareStatementForInsert(PreparedStatement statement, CounterParty party) {
+    protected void prepareInsertUpdateStatement(PreparedStatement statement, CounterParty party) throws SQLException {
         try {
             statement.setInt(1, party.getId());
             statement.setString(2, party.getName());
             statement.setString(3, party.getStatus());
             statement.setDate(4, party.getRegisteredDate());
-        } catch (Exception e) {
-
-        }
-    }
-
-    @Override
-    protected void prepareStatementForUpdate(PreparedStatement statement, CounterParty party) {
-        try {
-            statement.setInt(1, party.getId());
-            statement.setString(2, party.getName());
-            statement.setString(3, party.getStatus());
-            statement.setDate(4, party.getRegisteredDate());
-        } catch (Exception e) {
-            //todo throw new PersistException(e);
+        } catch (SQLException e) {
+            throw new SQLException(e);
         }
     }
 }

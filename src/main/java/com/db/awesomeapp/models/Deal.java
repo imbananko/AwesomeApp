@@ -5,14 +5,16 @@
  */
 package com.db.awesomeapp.models;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.sql.Date;
 
 /**
- *
  * @author Graduate
  */
 public class Deal {
-    private int id; 
+    private int id;
     private Date dealTime;
     private int counterPartyId;
     private int instrumentId;
@@ -26,10 +28,6 @@ public class Deal {
 
     public Date getDealTime() {
         return dealTime;
-    }
-
-    public Deal() {
-        dealTime = new Date(2017, 10, 10);
     }
 
     public int getCounterPartyId() {
@@ -84,7 +82,15 @@ public class Deal {
     public String toString() {
         return "Deal{" + "id=" + id + ", dealTime=" + dealTime + ", counterPartyId=" + counterPartyId + ", instrumentId=" + instrumentId + ", type=" + type + ", amount=" + amount + ", quantity=" + quantity + '}';
     }
-    
-    
-    
+
+    public String toJsonString() {
+        ObjectMapper mapper = new ObjectMapper();
+        String jsonString = "";
+        try {
+            jsonString = mapper.writeValueAsString(this);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return jsonString;
+    }
 }
