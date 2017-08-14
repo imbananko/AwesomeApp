@@ -19,8 +19,8 @@
     if (table != "" || table != null) {
         
         ConnectionHandler connectionHandler = new ConnectionHandler();
-        Deal deal = new Deal();
-        
+       
+        List<Deal> deal;
         List<CounterParty> counterparty;
         
         //CounterParty counterparty = new CounterParty();
@@ -28,7 +28,7 @@
         switch(table){
                 case "deal": 
                     DealDao dealSearch = new DealDao(connectionHandler.getConnection());
-                    deal = dealSearch.getByPK(Integer.valueOf("20001"));
+                    deal = dealSearch.getTopOf(20);
                     result = deal.toString();
                     break;
                     
