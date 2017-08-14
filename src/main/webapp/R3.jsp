@@ -20,7 +20,10 @@
         
         ConnectionHandler connectionHandler = new ConnectionHandler();
         Deal deal = new Deal();
-        CounterParty counterparty = new CounterParty();
+        
+        List<CounterParty> counterparty;
+        
+        //CounterParty counterparty = new CounterParty();
         
         switch(table){
                 case "deal": 
@@ -30,6 +33,9 @@
                     break;
                     
                 case "counterparty":
+                    CounterPartyDao counterpartySearch = new CounterPartyDao(connectionHandler.getConnection());
+                    counterparty = counterpartySearch.getAll();
+                    result = counterparty.toString();
                     break;
                     
                     
