@@ -6,10 +6,13 @@ import com.db.awesomeapp.models.Deal;
 import com.db.awesomeapp.models.Instrument;
 import com.db.awesomeapp.models.User;
 import com.db.awesomeapp.mysql.ConnectionHandler;
+import com.db.awesomeapp.mysql.FunctionHandler;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.junit.Test;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -24,6 +27,18 @@ public class NewDaoTest {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        FunctionHandler functionHandler = new FunctionHandler(c);
+        String result;
+        String dateFrom = new Date(2017, 7, 28, 17, 06, 300).toString();
+        String dateTo = new Date(2017, 7, 28, 17, 06, 600).toString();
+        try {
+            result = functionHandler.getAverageByDate("2017-07-28T17:06:29.955", "2017-07-28 17:06:30.60");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        //2017-07-28 17:06:30', '2017-07-28 17:06:30.635
+
 
         InstrumentDao dao = new InstrumentDao(c);
         List<Instrument> list;
