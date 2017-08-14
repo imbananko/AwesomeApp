@@ -1,7 +1,6 @@
 package com.db.awesomeapp.models;
 
 /**
- *
  * @author Graduate
  */
 public class User {

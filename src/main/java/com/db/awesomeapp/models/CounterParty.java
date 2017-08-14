@@ -5,11 +5,9 @@
  */
 package com.db.awesomeapp.models;
 
-import java.io.Serializable;
 import java.sql.Date;
 
 /**
- *
  * @author Graduate
  */
 public class CounterParty {
@@ -55,5 +53,5 @@ public class CounterParty {
     public String toString() {
         return "CounterParty{" + "counterPartyId=" + counterPartyId + ", name=" + name + ", status=" + status + ", registered=" + registered + '}';
     }
-    
+
 }
