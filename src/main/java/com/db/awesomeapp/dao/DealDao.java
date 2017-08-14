@@ -5,6 +5,7 @@ import com.db.awesomeapp.models.Deal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -15,40 +16,40 @@ public class DealDao extends AbstractDao<Deal, Integer> {
     }
 
     @Override
-    public Deal getByPK(Integer key)  {
-        List<Deal> list = new LinkedList<>();
+    public Deal getByPK(Integer key) throws SQLException {
+        List<Deal> list;
         String sql = getSelectQuery();
         sql += " WHERE deal_id = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, key);
             ResultSet rs = statement.executeQuery();
             list = parseResultSet(rs);
-        } catch (Exception e) {
-            //todo
+        } catch (SQLException e) {
+            throw new SQLException(e);
         }
         if (list == null || list.size() == 0) {
-            //todo throw new PersistException("Record with PK = " + key + " not found.");
+            throw new SQLException("Record with PK = " + key + " not found.");
         }
         if (list.size() > 1) {
-            //todo throw new PersistException("Received more than one record.");
+            throw new SQLException("Received more than one record.");
         }
         return list.iterator().next();
     }
 
     @Override
     public String getSelectQuery() {
-        return "SELECT * FROM db_grad_cs_1917.deal";
+        return "SELECT * FROM db_grad_cs_1917.deal ";
     }
 
     @Override
     public String getCreateQuery() {
-        return "INSERT INTO db_grad_cs_1917.deal (deal_id, deal_time, deal_counterparty_id, deal_instrument_id, deal_type, deal_amount, deal_quantity) " +
+        return "INSERT INTO db_grad_cs_1917.deal " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?);";
     }
 
     @Override
     public String getUpdateQuery() {
-        return "UPDATE db_grad_cs_1917.deal " +
+        return "UPDATE db_grad_cs_1917.deal SET" +
                 "deal_time = ?, " +
                 "deal_counterparty_id = ?, " +
                 "deal_instrument_id= ?, " +
@@ -64,7 +65,7 @@ public class DealDao extends AbstractDao<Deal, Integer> {
     }
 
     @Override
-    protected List<Deal> parseResultSet(ResultSet rs) {
+    protected List<Deal> parseResultSet(ResultSet rs) throws SQLException {
         LinkedList<Deal> result = new LinkedList<>();
         try {
             while (rs.next()) {
@@ -79,14 +80,14 @@ public class DealDao extends AbstractDao<Deal, Integer> {
                 deal.setQuantity(rs.getInt("deal_quantity"));
                 result.add(deal);
             }
-        } catch (Exception e) {
-            //todo
+        } catch (SQLException e) {
+            throw new SQLException(e);
         }
         return result;
     }
 
     @Override
-    protected void prepareStatementForInsert(PreparedStatement statement, Deal deal) {
+    protected void prepareInsertUpdateStatement(PreparedStatement statement, Deal deal) throws SQLException {
         try {
             statement.setInt(1, deal.getId());
             statement.setDate(2, deal.getDealTime());
@@ -96,22 +97,7 @@ public class DealDao extends AbstractDao<Deal, Integer> {
             statement.setDouble(6, deal.getAmount());
             statement.setInt(7, deal.getQuantity());
         } catch (Exception e) {
-//todo
-        }
-    }
-
-    @Override
-    protected void prepareStatementForUpdate(PreparedStatement statement, Deal object) {
-        try {
-            statement.setInt(1, object.getId());
-            statement.setDate(2, object.getDealTime());
-            statement.setInt(3, object.getCounterPartyId());
-            statement.setInt(4, object.getInstrumentId());
-            statement.setString(5, object.getType());
-            statement.setDouble(6, object.getAmount());
-            statement.setInt(7, object.getQuantity());
-        } catch (Exception e) {
-            //todo throw new PersistException(e);
+            throw new SQLException(e);
         }
     }
 }

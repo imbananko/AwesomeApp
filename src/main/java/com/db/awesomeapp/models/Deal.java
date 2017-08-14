@@ -8,11 +8,10 @@ package com.db.awesomeapp.models;
 import java.sql.Date;
 
 /**
- *
  * @author Graduate
  */
 public class Deal {
-    private int id; 
+    private int id;
     private Date dealTime;
     private int counterPartyId;
     private int instrumentId;
@@ -26,10 +25,6 @@ public class Deal {
 
     public Date getDealTime() {
         return dealTime;
-    }
-
-    public Deal() {
-        dealTime = new Date(2017, 10, 10);
     }
 
     public int getCounterPartyId() {
@@ -84,7 +79,6 @@ public class Deal {
     public String toString() {
         return "Deal{" + "id=" + id + ", dealTime=" + dealTime + ", counterPartyId=" + counterPartyId + ", instrumentId=" + instrumentId + ", type=" + type + ", amount=" + amount + ", quantity=" + quantity + '}';
     }
-    
-    
-    
+
+
 }
