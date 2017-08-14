@@ -58,33 +58,11 @@ public class NewDaoTest {
         List<CounterParty> party;
         List<User> user;
         try {
+            party = partyDao.getAll();
+            party = partyDao.getTopOf(2);
             deal = dealDao.getAll();
             user = userDao.getAll();
-            party = partyDao.getAll();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
-    @Test
-    public void someTest() {
-        ConnectionHandler connectionHandler = new ConnectionHandler();
-        Connection c = null;
-        try {
-            c = connectionHandler.getConnection();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        DealDao dealDao = new DealDao(c);
-        UserDao userDao = new UserDao(c);
-        CounterPartyDao partyDao = new CounterPartyDao(c);
-        List<Deal> deal;
-        List<CounterParty> party;
-        List<User> user;
-        try {
-            deal = dealDao.getAll();
-            user = userDao.getAll();
-            party = partyDao.getAll();
         } catch (Exception e) {
             e.printStackTrace();
         }
