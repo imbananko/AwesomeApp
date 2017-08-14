@@ -47,7 +47,8 @@ function getTables() {
     var url = "R3.jsp?id=" + escape(table.value);
     $.ajax({url: url, dataType: "html", success: function (result)
         {
-            displayData(result);
+            displayString(result);
+            //displayData(result);
 
         }});
 
@@ -75,7 +76,10 @@ function test_getTables() {
 
 
 function load_jsp() {
-    document.write(document.getElementById("showData").innerHTML = '<object type="text/html" data="indexR3.jsp" ></object>');
+    //document.write(document.getElementById("showData").innerHTML = '<object type="text/html" data="indexR3.jsp" ></object>');
+    //document.write('<object type="text/html" data="indexR3.jsp" ></object>');
+    window.location.href = "indexR3.jsp";
+
 }
 
 
@@ -91,14 +95,26 @@ function displayData(message) {
     //keys = res.keys(keys);
 
     var count = 0;
+    
+    
     for (var key in res) {
+        
 
         //var data = document.getElementById("td"+key);
         var data = document.getElementById("td" + count);
         data.insertAdjacentHTML("beforeend", res[key]);
         count++;
     }
+}
 
+
+
+function displayString(message){
+    var data = document.getElementById("dataShow");
+    data.insertAdjacentHTML("beforeend", message);
+    
+    
+}
     //data.insertAdjacentHTML("beforeend", res[keys[0]]);
     //data.insertAdjacentHTML("beforeend", keys);
     //var map = ["id","dealTime","counterPartyId","instrumentId","type","amount","quantity"]
@@ -117,7 +133,7 @@ function displayData(message) {
     //data.insertAdjacentHTML("beforeend", res.id);
     //data.insertAdjacentHTML("beforeend", JSON.parse(message)[1].name);
 
-}
+
 
 function getJson() {
     var ajaxRequest = new XMLHttpRequest();
