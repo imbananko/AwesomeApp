@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.LinkedList;
+import java.sql.SQLException;
 import java.util.List;
 
 public abstract class AbstractDao<T, PK extends Serializable> {
@@ -15,24 +15,54 @@ public abstract class AbstractDao<T, PK extends Serializable> {
     }
 
     protected abstract String getSelectQuery();
+
     protected abstract String getUpdateQuery();
+
     protected abstract String getDeleteQuery();
+
     protected abstract String getCreateQuery();
-    public abstract T getByPK(PK key);
 
-    protected abstract List<T> parseResultSet(ResultSet rs);
-    protected abstract void prepareStatementForInsert(PreparedStatement statement, T dao);
-    protected abstract void prepareStatementForUpdate(PreparedStatement statement, T dao);
+    public abstract T getByPK(PK key) throws SQLException;
 
-    public List<T> getAll() {
-        List<T> list = new LinkedList<>();
+    protected abstract List<T> parseResultSet(ResultSet rs) throws SQLException;
+
+    protected abstract void prepareStatementForInsert(PreparedStatement statement, T dao) throws SQLException;
+
+    protected abstract void prepareStatementForUpdate(PreparedStatement statement, T dao) throws SQLException;
+
+    public List<T> getAll() throws SQLException {
+        List<T> list;
         String sql = getSelectQuery();
-        try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            ResultSet rs = statement.executeQuery();
-            list = parseResultSet(rs);
-        } catch (Exception e) {
-            //todo throw new PersistException(e);
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        try {
+            statement = connection.prepareStatement(sql);
+            rs = statement.executeQuery();
+        } catch (SQLException e) {
+            throw new SQLException(e);
         }
+
+        list = parseResultSet(rs);
         return list;
     }
+
+    public List<T> getTopOf(int top) throws SQLException {
+        List<T> list;
+        String sql = getSelectQuery();
+        sql += " LIMIT ?";
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1, top);
+            rs = statement.executeQuery();
+        } catch (SQLException e) {
+            throw new SQLException(e);
+        }
+
+        list = parseResultSet(rs);
+        return list;
+    }
+
+
 }
