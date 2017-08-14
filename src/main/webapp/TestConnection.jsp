@@ -13,18 +13,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Confirm Database Connection</title>
     </head>
-
-    <h1>Hello World!</h1>
 
     <h3>
         <%= request.getAttribute("connectionStatus") %>
         <br/>
         <%= request.getAttribute("statusInfo") %>
     </h3>
-
-    <h3> VLAD DID IT! </h3>
 
 
 </html>
