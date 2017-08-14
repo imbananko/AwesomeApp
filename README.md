@@ -26,7 +26,7 @@ We use [Travis CI](https://travis-ci.org/) for continuous integration.
 * **Jackie Zhang** - *Frontend developer* - [agaperste](https://github.com/agaperste)
 * **Richard Zhu** - *Backend developer* - [ShokiRichard](https://github.com/ShokiRichard)
 * **Gopi Ram** - *Backend developer* - [grb29](https://github.com/grb29)
-* **Michael Chin** - *Lookuptome* 
+* **Michael Chin** - *Business analyst*  - [Lookuptome](https://github.com/Lookuptome)
 
 See also the list of [contributors](https://github.com/imbananko/AwesomeApp/contributors) who participated in this project.
 

@@ -1,7 +1,9 @@
 package com.db.awesomeapp.models;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 /**
- *
  * @author Graduate
  */
 public class User {
@@ -31,5 +33,16 @@ public class User {
                 + "id=" + id
                 + ", password='" + password + '\''
                 + '}';
+    }
+
+    public String toJsonString() {
+        ObjectMapper mapper = new ObjectMapper();
+        String jsonString = "";
+        try {
+            jsonString = mapper.writeValueAsString(this);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return jsonString;
     }
 }

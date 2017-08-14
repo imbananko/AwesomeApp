@@ -5,11 +5,13 @@
  */
 package com.db.awesomeapp.models;
 
-import java.io.Serializable;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import javax.json.JsonObject;
 import java.sql.Date;
 
 /**
- *
  * @author Graduate
  */
 public class CounterParty {
@@ -55,5 +57,15 @@ public class CounterParty {
     public String toString() {
         return "CounterParty{" + "counterPartyId=" + counterPartyId + ", name=" + name + ", status=" + status + ", registered=" + registered + '}';
     }
-    
+
+    public String toJsonString() {
+        ObjectMapper mapper = new ObjectMapper();
+        String jsonString = "";
+        try {
+            jsonString = mapper.writeValueAsString(this);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return jsonString;
+    }
 }

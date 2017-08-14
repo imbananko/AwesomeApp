@@ -1,11 +1,9 @@
 package com.db;
 
-import com.db.awesomeapp.dao.AbstractDao;
-import com.db.awesomeapp.dao.CounterPartyDao;
-import com.db.awesomeapp.dao.DealDao;
-import com.db.awesomeapp.dao.UserDao;
+import com.db.awesomeapp.dao.*;
 import com.db.awesomeapp.models.CounterParty;
 import com.db.awesomeapp.models.Deal;
+import com.db.awesomeapp.models.Instrument;
 import com.db.awesomeapp.models.User;
 import com.db.awesomeapp.mysql.ConnectionHandler;
 import org.junit.Test;
@@ -16,6 +14,34 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class NewDaoTest {
+
+    @Test
+    public void instrumentDaoTets() {
+        ConnectionHandler connectionHandler = new ConnectionHandler();
+        Connection c = null;
+        try {
+            c = connectionHandler.getConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        InstrumentDao dao = new InstrumentDao(c);
+        List<Instrument> list;
+        Instrument i;
+
+        try {
+
+            list = dao.getAll();
+            i = dao.getByPK(1002);
+            list = dao.getTopOf(2);
+            System.out.println("test");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
     @Test
     public void getByPKTest() {
         ConnectionHandler connectionHandler = new ConnectionHandler();
