@@ -1,7 +1,7 @@
 <%-- 
     Document   : indexR4.jsp
     Created on : 09-Aug-2017, 18:40:35
-    Author     : Richard
+    Author     : Richard, Jackie
 --%>
 <!DOCTYPE html>
 <html>
@@ -9,7 +9,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="jquery-3.0.0.js"></script>
         <script type="text/javascript" src="main.js"></script>
-        <title>Deutsche Bank Case Study</title>
+        <title>Detailed Deal Information</title>
+
     </head>
 
     <body>
