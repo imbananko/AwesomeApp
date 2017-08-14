@@ -85,9 +85,12 @@ function testConnection() {
 
 function displayData(message) {
     var data = document.getElementById("dataShow");
-    data.insertAdjacentHTML("beforeend", message);
+    //data.insertAdjacentHTML("beforeend", message);
+   
     //document.write(data.insertAdjacentHTML("beforeend", message));
-    //data.insertAdjacentHTML("beforeend", JSON.parse(message)[0].name);
+    res = JSON.parse(message);
+    //data.innerHTML += res.id;
+    data.insertAdjacentHTML("beforeend", res.amount);
     //data.insertAdjacentHTML("beforeend", JSON.parse(message)[1].name);
 
 }
