@@ -5,6 +5,7 @@ import com.db.awesomeapp.models.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -16,22 +17,22 @@ public class UserDao extends AbstractDao<User, String> {
     }
 
     @Override
-    public User getByPK(String key) {
-        List<User> list = new LinkedList<>();
+    public User getByPK(String key) throws SQLException {
+        List<User> list;
         String sql = getSelectQuery();
         sql += " WHERE user_id = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, key);
             ResultSet rs = statement.executeQuery();
             list = parseResultSet(rs);
-        } catch (Exception e) {
-            //todo
+        } catch (SQLException e) {
+            throw new SQLException(e);
         }
         if (list == null || list.size() == 0) {
-            //todo new PersistException("Record with PK = " + key + " not found.");
+            throw new SQLException("Record with PK = " + key + " not found.");
         }
         if (list.size() > 1) {
-            //todo throw new PersistException("Received more than one record.");
+            throw new SQLException("Received more than one record.");
         }
         return list.iterator().next();
     }
@@ -78,22 +79,12 @@ public class UserDao extends AbstractDao<User, String> {
     }
 
     @Override
-    protected void prepareStatementForInsert(PreparedStatement statement, User user) {
+    protected void prepareInsertUpdateStatement(PreparedStatement statement, User user) throws SQLException {
         try {
             statement.setString(1, user.getId());
             statement.setString(2, user.getPassword());
-        } catch (Exception e) {
-
-        }
-    }
-
-    @Override
-    protected void prepareStatementForUpdate(PreparedStatement statement, User user) {
-        try {
-            statement.setString(1, user.getId());
-            statement.setString(2, user.getPassword());
-        } catch (Exception e) {
-
+        } catch (SQLException e) {
+            throw new SQLException(e);
         }
     }
 }

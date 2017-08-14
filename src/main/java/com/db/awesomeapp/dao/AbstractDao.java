@@ -26,9 +26,7 @@ public abstract class AbstractDao<T, PK extends Serializable> {
 
     protected abstract List<T> parseResultSet(ResultSet rs) throws SQLException;
 
-    protected abstract void prepareStatementForInsert(PreparedStatement statement, T dao) throws SQLException;
-
-    protected abstract void prepareStatementForUpdate(PreparedStatement statement, T dao) throws SQLException;
+    protected abstract void prepareInsertUpdateStatement(PreparedStatement statement, T dao) throws SQLException;
 
     public List<T> getAll() throws SQLException {
         List<T> list;
