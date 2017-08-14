@@ -51,15 +51,21 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li class="btn btn-default" style="color:black"><a href="indexR4.jsp">Query for Relationships (R4)</a></li>
-          </ul>
+              <ul class="nav navbar-nav">
+                <li class="btn btn-default" style="color:black"><a href="indexR3.jsp">View All Deals (R3)</a></li>
+              </ul>
+              <ul class="nav navbar-nav">
+                <li class="btn btn-default" style="color:black"><a href="indexR4.jsp">Query for Relationships (R4)</a></li>
+              </ul>
+              <ul class="nav navbar-nav">
+                <li class="btn btn-default" style="color:black"><a href="#blah">Analysis (R5-8)</a></li>
+              </ul>
 
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>     
         
-    <section id="services" class="services bg-primary text-white">
+    <section style="background-color: #BDBAAE" id="services" class="services bg-primary text-white">
         <div class="container">
             <div class="row text-center">
                 <div class="col-lg-10 mx-auto">
