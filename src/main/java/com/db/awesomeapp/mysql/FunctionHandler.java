@@ -19,7 +19,7 @@ public class FunctionHandler {
         this.connection = connection;
     }
 
-    public String getAverageByDate(String dateFrom, String dateTo) throws SQLException {
+    public String getJsonAverageBetween(String dateFrom, String dateTo) throws SQLException {
         String sql = "CALL getAverageBetween(?, ?)";
 
         ObjectMapper mapper = new ObjectMapper();
@@ -34,10 +34,6 @@ public class FunctionHandler {
             statement.setString(2, dateTo);
             ResultSet rs = statement.executeQuery();
 
-
-
-
-
             while (rs.next()) {
                 JsonNode element = mapper.createObjectNode();
                 ((ObjectNode) element).put("instrumentName", rs.getString(1));
@@ -46,7 +42,6 @@ public class FunctionHandler {
 
                 childNodes.add(element);
                 ((ObjectNode) rootNode).put("ratings", childNodes);
-
             }
         } catch (SQLException e) {
             throw new SQLException(e);
