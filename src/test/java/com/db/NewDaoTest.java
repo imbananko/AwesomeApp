@@ -1,5 +1,6 @@
 package com.db;
 
+import com.db.awesomeapp.JsonHelper;
 import com.db.awesomeapp.dao.*;
 import com.db.awesomeapp.models.CounterParty;
 import com.db.awesomeapp.models.Deal;
@@ -29,15 +30,15 @@ public class NewDaoTest {
         }
 
         FunctionHandler functionHandler = new FunctionHandler(c);
-        String result;
-        String dateFrom = new Date(2017, 7, 28, 17, 06, 300).toString();
-        String dateTo = new Date(2017, 7, 28, 17, 06, 600).toString();
-        try {
-            result = functionHandler.getAverageByDate("2017-07-28T17:06:29.955", "2017-07-28 17:06:30.60");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        //2017-07-28 17:06:30', '2017-07-28 17:06:30.635
+        //String result;
+        //String dateFrom = new Date(2017, 7, 28, 17, 06, 300).toString();
+        //String dateTo = new Date(2017, 7, 28, 17, 06, 600).toString();
+        //try {
+        //    result = functionHandler.getJsonAverageBetween("2017-07-28T17:06:29.955", "2017-07-28 17:06:30.60");
+        //} catch (SQLException e) {
+        //    e.printStackTrace();
+        //}
+        ////2017-07-28 17:06:30', '2017-07-28 17:06:30.635
 
 
         InstrumentDao dao = new InstrumentDao(c);
@@ -48,7 +49,10 @@ public class NewDaoTest {
 
             list = dao.getAll();
             i = dao.getByPK(1002);
+            String x1 = JsonHelper.getJsonOf(i);
+            String x2 = functionHandler.getEffectiveRate(701);
             list = dao.getTopOf(2);
+            String x = JsonHelper.getJsonOf(list);
             System.out.println("test");
 
         } catch (Exception e) {

@@ -23,10 +23,8 @@ public class FunctionHandler {
         String sql = "CALL getAverageBetween(?, ?)";
 
         ObjectMapper mapper = new ObjectMapper();
-
         JsonNode rootNode = mapper.createObjectNode();
         ArrayNode childNodes = mapper.createArrayNode();
-
 
         List<ObjectNode> jsonList = new LinkedList<>();
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -39,18 +37,74 @@ public class FunctionHandler {
                 ((ObjectNode) element).put("instrumentName", rs.getString(1));
                 ((ObjectNode) element).put("averageBuy", rs.getDouble(2));
                 ((ObjectNode) element).put("averageSell", rs.getDouble(3));
-
                 childNodes.add(element);
-                ((ObjectNode) rootNode).put("ratings", childNodes);
             }
         } catch (SQLException e) {
             throw new SQLException(e);
+        } catch (JsonGenerationException e) {
+            throw new SQLException(e);
         }
-        catch (JsonGenerationException e) {
+        ((ObjectNode) rootNode).put("ratings", childNodes);
+        return rootNode.toString();
+    }
+
+    public String getJsonTradesQuantity(Integer partyId) throws SQLException {
+        //String sql = "CALL getTradesQuantityById(?)";
+        String sql = "CALL getAvgQuantity2(?)";
+
+
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode rootNode = mapper.createObjectNode();
+        ArrayNode childNodes = mapper.createArrayNode();
+
+        List<ObjectNode> jsonList = new LinkedList<>();
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, partyId);
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                JsonNode element = mapper.createObjectNode();
+                ((ObjectNode) element).put("instrumentName", rs.getString(1));
+                ((ObjectNode) element).put("quantity", rs.getDouble(2));
+
+                childNodes.add(element);
+                ((ObjectNode) rootNode).put("trades_average", childNodes);
+            }
+        } catch (SQLException e) {
+            throw new SQLException(e);
+        } catch (JsonGenerationException e) {
             throw new SQLException(e);
         }
 
         return rootNode.toString();
     }
 
+    public String getEffectiveRate(Integer partyId) throws SQLException {
+        String sql = "CALL getEffectiveById(?)";
+
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode rootNode = mapper.createObjectNode();
+        ArrayNode childNodes = mapper.createArrayNode();
+
+        List<ObjectNode> jsonList = new LinkedList<>();
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, partyId);
+            ResultSet rs = statement.executeQuery();
+            ResultSetMetaData rsmd = rs.getMetaData();
+            while (rs.next()) {
+                JsonNode element = mapper.createObjectNode();
+
+                int numColumns = rsmd.getColumnCount();
+                // JSONObject obj = new JSONObject();
+                for (int i=1; i<=numColumns; i++) {
+                    String column_name = rsmd.getColumnName(i);
+                    ((ObjectNode) element).put(column_name, rs.getDouble(column_name));
+                }
+                childNodes.add(element);
+
+            }
+        }
+        ((ObjectNode) rootNode).put("effectiveRate", childNodes);
+        return rootNode.toString();
+    }
 }
