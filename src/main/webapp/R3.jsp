@@ -1,15 +1,18 @@
 <%-- 
     Document   : R3.jsp
     Created on : 14-Aug-2017, 10:03:58
-    Author     : Graduate
+    Author     : Richard
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.io.*,java.util.*" %>
 <%@ page import="com.db.awesomeapp.dao.DealDao" %>
 <%@ page import="com.db.awesomeapp.dao.CounterPartyDao" %>
+<%@ page import="com.db.awesomeapp.dao.InstrumentDao" %>
 <%@ page import="com.db.awesomeapp.models.Deal" %>
 <%@ page import="com.db.awesomeapp.models.CounterParty" %>
+<%@ page import="com.db.awesomeapp.models.Instrument" %>
+
 <%@ page import="com.db.awesomeapp.mysql.ConnectionHandler" %>
 <%@ page import="com.db.awesomeapp.JsonHelper" %>
 
@@ -24,6 +27,7 @@
         JsonHelper json = new JsonHelper();
         List<Deal> deal;
         List<CounterParty> counterparty;
+        List<Instrument> instrument;
 
         //CounterParty counterparty = new CounterParty();
         switch (table) {
@@ -41,6 +45,10 @@
                 break;
 
             case "instrument":
+                InstrumentDao instrumentDaoSearch = new InstrumentDao(connectionHandler.getConnection());
+                instrument = instrumentDaoSearch.getAll();
+                //result = counterparty.toString();
+                result = json.getJsonOf(instrument);
                 break;
         }
 

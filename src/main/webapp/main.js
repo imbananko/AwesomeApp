@@ -45,6 +45,8 @@ function getDealByID() {
             res = JSON.parse(result);
             var listRes = [res];
             buildHtmlTable(listRes, "#dataShow");
+            getcpByID(res.counterPartyId);
+            getinsByID(res.instrumentId);
             //var data = document.getElementById("dataShow");
             // data.insertAdjacentHTML("beforeend", res.id);
 
@@ -58,6 +60,52 @@ function getDealByID() {
 
 
 }
+
+//function to get conterparty by counterparty ID
+function getcpByID(id) {
+    var ajaxRequest = new XMLHttpRequest();
+    var url = "R4cp.jsp?id=" + escape(id);
+
+    $.ajax({url: url, dataType: "html", success: function (result)
+        {
+            //displayData(result);
+            res = JSON.parse(result);
+            var listRes = [res];
+            buildHtmlTable(listRes, "#dataShow");
+            //var data = document.getElementById("dataShow");
+            // data.insertAdjacentHTML("beforeend", res.id);
+
+
+            //$("#dataShow").innerHTML  += res.id;
+            //data = result;
+
+            //displayString(result);
+
+        }});
+    }
+
+function getinsByID(id) {
+    var ajaxRequest = new XMLHttpRequest();
+    var url = "R4ins.jsp?id=" + escape(id);
+
+    $.ajax({url: url, dataType: "html", success: function (result)
+        {
+            //displayData(result);
+            res = JSON.parse(result);
+            var listRes = [res];
+            buildHtmlTable(listRes, "#dataShow");
+            //var data = document.getElementById("dataShow");
+            // data.insertAdjacentHTML("beforeend", res.id);
+
+
+            //$("#dataShow").innerHTML  += res.id;
+            //data = result;
+
+            //displayString(result);
+
+        }});
+    }
+
 
 // function for getting whole tables by table names 
 function getTables() {
@@ -191,5 +239,6 @@ function addAllColumnHeaders(myList, selector) {
 
     return columnSet;
 }
+
 
 
