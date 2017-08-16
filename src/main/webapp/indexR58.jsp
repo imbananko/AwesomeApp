@@ -1,8 +1,10 @@
 <%-- 
-    Document   : indexR3.jsp
-    Created on : 14-Aug-2017, 09:59:25
-    Author     : Richard, Vlad, Jackie 
+    Document   : indexR58.jsp
+    Created on : 16-Aug-2017, 13:42:12
+    Author     : Richard
 --%>
+
+
 
 <!DOCTYPE html>
 <html>
@@ -69,15 +71,16 @@
             <div class="container">
                 <div class="row text-center">
                     <div style="color:black" class="col-lg-10 mx-auto">
-                        <h2>View All Deals</h2>
+                        <h2>Trading Details</h2>
                         <hr class="small">
 
                         <form >
-                            <select id="tables" name="Select Tables">
-                                <option disabled selected value> -- select an table -- </option>
-                                <option value="deal" style="color:black">deal</option>
-                                <option value="instrument" style="color:black">instrument</option>
-                                <option value="counterparty" style="color:black">counter-party</option>
+                            <select id="info" name="View Trading">
+                                <option disabled selected value> -- select -- </option>
+                                <option value="avg" style="color:black">Average Buy and Sell</option>
+                                <option value="quantity" style="color:black">Net Trade</option>
+                                <option value="profit" style="color:black">Realized Profit</option>
+                                <option value="eprofit" style="color:black">Effective Profit</option>
                             </select>
                             <button type="button" onclick="getTables()">Submit</button>
                         </form>
