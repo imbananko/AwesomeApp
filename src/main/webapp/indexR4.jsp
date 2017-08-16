@@ -49,7 +49,7 @@
                 <li class="btn btn-default" style="color:black"><a href="indexR4.jsp">Query for Relationships (R4)</a></li>
               </ul>
               <ul class="nav navbar-nav">
-                <li class="btn btn-default" style="color:black"><a href="#blah">Analysis (R5-8)</a></li>
+                <li class="btn btn-default" style="color:black"><a href="indexR58.jsp">Analysis (R5-8)</a></li>
               </ul>
 
             </div><!-- /.navbar-collapse -->
@@ -57,7 +57,7 @@
         </nav>        
         
         
-        <section style="background-color: #BDBAAE" id="services" class="services bg-primary text-white">
+        <section style="color:black" style="background-color: #BDBAAE" id="services" class="services bg-primary text-white">
             <div class="container">
                 <div class="row text-center">
                     <div class="col-lg-10 mx-auto">

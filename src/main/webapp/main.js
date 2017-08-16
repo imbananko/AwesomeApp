@@ -82,7 +82,7 @@ function getcpByID(id) {
             //displayString(result);
 
         }});
-    }
+}
 
 function getinsByID(id) {
     var ajaxRequest = new XMLHttpRequest();
@@ -104,7 +104,7 @@ function getinsByID(id) {
             //displayString(result);
 
         }});
-    }
+}
 
 
 // function for getting whole tables by table names 
@@ -116,7 +116,11 @@ function getTables() {
         {
             //displayString(result);
             //displayData(result);
+            
             res = JSON.parse(result);
+            document.getElementById("dataShow").innerHTML = "";
+            //$("#dataShow").html("");
+
             //var listRes = [res];
             buildHtmlTable(res, "#dataShow");
 
