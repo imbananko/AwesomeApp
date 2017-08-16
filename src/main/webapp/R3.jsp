@@ -11,6 +11,8 @@
 <%@ page import="com.db.awesomeapp.models.Deal" %>
 <%@ page import="com.db.awesomeapp.models.CounterParty" %>
 <%@ page import="com.db.awesomeapp.mysql.ConnectionHandler" %>
+<%@ page import="com.db.awesomeapp.JsonHelper" %>
+
 
 <%
     String table = request.getParameter("id");
@@ -19,7 +21,7 @@
     if (table != "" || table != null) {
 
         ConnectionHandler connectionHandler = new ConnectionHandler();
-
+        JsonHelper json = new JsonHelper();
         List<Deal> deal;
         List<CounterParty> counterparty;
 
@@ -28,13 +30,14 @@
             case "deal":
                 DealDao dealSearch = new DealDao(connectionHandler.getConnection());
                 deal = dealSearch.getTopOf(20);
-                result = deal.toString();
+                result = json.getJsonOf(deal);
                 break;
 
             case "counterparty":
                 CounterPartyDao counterpartySearch = new CounterPartyDao(connectionHandler.getConnection());
                 counterparty = counterpartySearch.getAll();
-                result = counterparty.toString();
+                //result = counterparty.toString();
+                result = json.getJsonOf(counterparty);
                 break;
 
             case "instrument":

@@ -4,11 +4,13 @@
     Author     : Richard
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page import="org.json.*" %>
+
 <%@ page import="java.io.*,java.util.*" %>
 <%@ page import="com.db.awesomeapp.dao.DealDao" %>
 <%@ page import="com.db.awesomeapp.models.Deal" %>
 <%@ page import="com.db.awesomeapp.mysql.ConnectionHandler" %>
+<%@ page import="com.db.awesomeapp.JsonHelper" %>
+
 
 <%
     String userId = request.getParameter("id");
@@ -17,11 +19,13 @@
     if (userId != "" || userId != null) {
         ConnectionHandler connectionHandler = new ConnectionHandler();
         Deal deal = new Deal();
+        JsonHelper json = new JsonHelper();
         DealDao dealSearch = new DealDao(connectionHandler.getConnection());
         deal = dealSearch.getByPK(Integer.valueOf(userId));
         //result = deal.toString();
-        result = deal.toJsonString();
-        
+        //result = deal.toJsonString();
+        result = json.getJsonOf(deal);
+
         /*
         JSONObject json = new JSONObject();
         json.put("id",deal.getId());
@@ -31,9 +35,7 @@
         json.put("type",deal.getType());
         json.put("amount",deal.getAmount());
         json.put("quantity",deal.getQuantity());
-        */
-       
-
+         */
         out.flush();
         out.print(result);
         //out.print(json);
