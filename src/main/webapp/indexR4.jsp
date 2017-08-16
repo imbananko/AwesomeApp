@@ -68,12 +68,8 @@
                             <p>Search Deal ID: <input type="text" id="f_dealID" name="id"></p>
 
                             <button style="color:black" type="button" onclick="getDealByID()">Submit</button>
-                        </form>                       
-                        <div id="dataShow">
-
-
-                        </div>
-
+                        </form>
+                        
                         <style>
                             table {
                                 font-family: arial, sans-serif;
@@ -92,34 +88,11 @@
                                 background-color: #dddddd;
                             }
                         </style>
+                        
+                        <div id="dataShow">
 
-                        <table>
-                            <tr>
-                                <th>Deal ID</th>
-                                <th>Deal Time</th>
-                                <th>counterPartyId</th>
-                                <th>instrumentId</th>
-                                <th>type</th>
-                                <th>amount</th>
-                                <th>quantity</th>
-                            </tr>
-                            <tr>
-                                <td id="td0" ></td>
-                                <td id="td1"></td>
-                                <td id="td2"></td>
-                                <td id="td3"></td>
-                                <td id="td4"></td>
-                                <td id="td5"></td>
-                                <td id="td6"></td>
 
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-
-                        </table>                         
+                                              
                                       
                     </div>
                     <!-- /.col-lg-10 -->

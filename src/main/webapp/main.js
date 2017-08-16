@@ -4,6 +4,12 @@
  * and open the template in the editor.
  */
 
+/*
+ * 
+ * @author: Richard
+ * 
+ */
+
 //function to verify user in db for login
 function verifyUser() {
     var ajaxRequest = new XMLHttpRequest();
@@ -19,6 +25,8 @@ function verifyUser() {
             } else {
                 var data = document.getElementById("showData");
                 data.innerHTML += "User ID & Password Invalid";
+
+
             }
 
         }});
@@ -33,7 +41,18 @@ function getDealByID() {
 
     $.ajax({url: url, dataType: "html", success: function (result)
         {
-            displayData(result);
+            //displayData(result);
+            res = JSON.parse(result);
+            var listRes = [res];
+            buildHtmlTable(listRes, "#dataShow");
+            //var data = document.getElementById("dataShow");
+            // data.insertAdjacentHTML("beforeend", res.id);
+
+
+            //$("#dataShow").innerHTML  += res.id;
+            //data = result;
+
+            //displayString(result);
 
         }});
 
@@ -47,8 +66,11 @@ function getTables() {
     var url = "R3.jsp?id=" + escape(table.value);
     $.ajax({url: url, dataType: "html", success: function (result)
         {
-            displayString(result);
+            //displayString(result);
             //displayData(result);
+            res = JSON.parse(result);
+            //var listRes = [res];
+            buildHtmlTable(res, "#dataShow");
 
         }});
 
@@ -95,10 +117,10 @@ function displayData(message) {
     //keys = res.keys(keys);
 
     var count = 0;
-    
-    
+
+
     for (var key in res) {
-        
+
 
         //var data = document.getElementById("td"+key);
         var data = document.getElementById("td" + count);
@@ -109,45 +131,65 @@ function displayData(message) {
 
 
 
-function displayString(message){
+function displayString(message) {
     var data = document.getElementById("dataShow");
     data.insertAdjacentHTML("beforeend", message);
-    
-    
-}
-    //data.insertAdjacentHTML("beforeend", res[keys[0]]);
-    //data.insertAdjacentHTML("beforeend", keys);
-    //var map = ["id","dealTime","counterPartyId","instrumentId","type","amount","quantity"]
-
-    /*
-     for (ind = 0; ind < 7; ind ++){
-     var data = document.getElementById("td" + ind);
-     data.insertAdjacentHTML("beforeend", res[keys[ind]]);
-     
-     }
-     */
-
-    //document.write(data.insertAdjacentHTML("beforeend", message));
-
-    //data.innerHTML += res.id;
-    //data.insertAdjacentHTML("beforeend", res.id);
-    //data.insertAdjacentHTML("beforeend", JSON.parse(message)[1].name);
-
-
-
-function getJson() {
-    var ajaxRequest = new XMLHttpRequest();
-    var url = 'https://learnwebcode.github.io/json-example/animals-1.json';
-
-
-    $.ajax({url: url, dataType: "text", success: function (result)
-        {
-            displayData(result);
-
-        }});
 
 
 }
+//data.insertAdjacentHTML("beforeend", res[keys[0]]);
+//data.insertAdjacentHTML("beforeend", keys);
+//var map = ["id","dealTime","counterPartyId","instrumentId","type","amount","quantity"]
 
+/*
+ for (ind = 0; ind < 7; ind ++){
+ var data = document.getElementById("td" + ind);
+ data.insertAdjacentHTML("beforeend", res[keys[ind]]);
+ 
+ }
+ */
+
+//document.write(data.insertAdjacentHTML("beforeend", message));
+
+//data.innerHTML += res.id;
+//data.insertAdjacentHTML("beforeend", res.id);
+//data.insertAdjacentHTML("beforeend", JSON.parse(message)[1].name);
+
+
+function buildHtmlTable(myList, selector) {
+    var columns = addAllColumnHeaders(myList, selector);
+
+    for (var i = 0; i < myList.length; i++) {
+        var row$ = $('<tr/>');
+        for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+            var cellValue = myList[i][columns[colIndex]];
+            if (cellValue == null)
+                cellValue = "";
+            row$.append($('<td/>').html(cellValue));
+        }
+        $(selector).append(row$);
+    }
+}
+
+// Adds a header row to the table and returns the set of columns.
+// Need to do union of keys from all records as some records may not contain
+// all records.
+function addAllColumnHeaders(myList, selector) {
+    var columnSet = [];
+    var headerTr$ = $('<tr/>');
+
+    for (var i = 0; i < myList.length; i++) {
+        var rowHash = myList[i];
+        for (var key in rowHash) {
+            if ($.inArray(key, columnSet) == -1) {
+                columnSet.push(key);
+                headerTr$.append($('<th/>').html(key));
+            }
+        }
+    }
+    $(selector).append(headerTr$);
+
+    return columnSet;
+}
 
 
