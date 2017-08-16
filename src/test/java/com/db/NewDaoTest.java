@@ -41,6 +41,7 @@ public class NewDaoTest {
         ////2017-07-28 17:06:30', '2017-07-28 17:06:30.635
         try {
             String testStr;
+            testStr = functionHandler.getJsonDealInfo("Lewis", "Borealis", null);
             testStr = functionHandler.getJsonAverageBetween("2017-07-28T17:06:30.003", "2017-07-28T17:06:30.300");
             testStr = functionHandler.getJsonEffectiveRate();
             testStr = functionHandler.getJsonTradesQuantity();

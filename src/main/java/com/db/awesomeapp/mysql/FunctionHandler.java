@@ -20,6 +20,23 @@ public class FunctionHandler {
         this.connection = connection;
     }
 
+    public String getJsonDealInfo(String partyName, String instrumentName, String type) throws SQLException {
+        String sql = "CALL getDealInfo(?, ?, ?)";
+
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, partyName);
+            statement.setString(2, instrumentName);
+            statement.setString(3, type);
+            ResultSet rs = statement.executeQuery();
+
+            return JsonHelper.resultSetToJson(rs);
+        } catch (SQLException e) {
+            throw new SQLException(e);
+        } catch (JsonGenerationException e) {
+            throw new SQLException(e);
+        }
+    }
+
     public String getJsonAverageBetween(String dateFrom, String dateTo) throws SQLException {
         String sql = "CALL getAverageBetween(?, ?)";
 
