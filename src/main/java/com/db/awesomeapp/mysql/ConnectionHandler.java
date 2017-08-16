@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public class ConnectionHandler {
 
-    private String user = "root";                                               //sql login
-    private String password = "ppp";                                            //sql password
-    private String url = "jdbc:mysql://192.168.99.100:3306/db_grad_cs_1917";    //imbananko's docker mysql url
+    private String user = "test-user";                                               //sql login
+    private String password = "test-user";                                            //sql password
+    private String url = "jdbc:mysql://localhost:3306/db_grad_cs_1917";    //imbananko's docker mysql url
     private String driver = "com.mysql.jdbc.Driver";                            //driver name
 
     public ConnectionHandler() {
