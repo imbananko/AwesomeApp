@@ -4,6 +4,12 @@
  * and open the template in the editor.
  */
 
+/*
+ * 
+ * @author: Richard
+ * 
+ */
+
 //function to verify user in db for login
 function verifyUser() {
     var ajaxRequest = new XMLHttpRequest();
@@ -33,8 +39,12 @@ function getDealByID() {
 
     $.ajax({url: url, dataType: "html", success: function (result)
         {
-            displayData(result);
-
+            //displayData(result);
+            //data = JSON.parse(result);
+            //data = result;
+            buildHtmlTable(result,"#dataShow");
+            //displayString(result);
+            
         }});
 
 
@@ -134,20 +144,39 @@ function displayString(message){
     //data.insertAdjacentHTML("beforeend", JSON.parse(message)[1].name);
 
 
+function buildHtmlTable(myList,selector) {
+  var columns = addAllColumnHeaders(myList, selector);
 
-function getJson() {
-    var ajaxRequest = new XMLHttpRequest();
-    var url = 'https://learnwebcode.github.io/json-example/animals-1.json';
-
-
-    $.ajax({url: url, dataType: "text", success: function (result)
-        {
-            displayData(result);
-
-        }});
-
-
+  for (var i = 0; i < myList.length; i++) {
+    var row$ = $('<tr/>');
+    for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+      var cellValue = myList[i][columns[colIndex]];
+      if (cellValue == null) cellValue = "";
+      row$.append($('<td/>').html(cellValue));
+    }
+    $(selector).append(row$);
+  }
 }
 
+// Adds a header row to the table and returns the set of columns.
+// Need to do union of keys from all records as some records may not contain
+// all records.
+function addAllColumnHeaders(myList, selector) {
+  var columnSet = [];
+  var headerTr$ = $('<tr/>');
+
+  for (var i = 0; i < myList.length; i++) {
+    var rowHash = myList[i];
+    for (var key in rowHash) {
+      if ($.inArray(key, columnSet) == -1) {
+        columnSet.push(key);
+        headerTr$.append($('<th/>').html(key));
+      }
+    }
+  }
+  $(selector).append(headerTr$);
+
+  return columnSet;
+}
 
 
