@@ -33,7 +33,7 @@
         switch (table) {
             case "deal":
                 DealDao dealSearch = new DealDao(connectionHandler.getConnection());
-                deal = dealSearch.getTopOf(20);
+                deal = dealSearch.getTopOf(8);
                 result = json.getJsonOf(deal);
                 break;
 

@@ -12,7 +12,7 @@
 
 //function to verify user in db for login
 function verifyUser() {
-    var ajaxRequest = new XMLHttpRequest();
+    //var ajaxRequest = new XMLHttpRequest();
     var userId = document.getElementById("f_userid");
     var password = document.getElementById("f_password");
     var url = "login.jsp?id=" + escape(userId.value) + "&pwd=" + escape(password.value);
@@ -35,7 +35,7 @@ function verifyUser() {
 
 //function for getting 1 deal record by Deal ID
 function getDealByID() {
-    var ajaxRequest = new XMLHttpRequest();
+    //var ajaxRequest = new XMLHttpRequest();
     var dealID = document.getElementById("f_dealID");
     var url = "R4.jsp?id=" + escape(dealID.value);
 
@@ -63,7 +63,7 @@ function getDealByID() {
 
 //function to get conterparty by counterparty ID
 function getcpByID(id) {
-    var ajaxRequest = new XMLHttpRequest();
+    //var ajaxRequest = new XMLHttpRequest();
     var url = "R4cp.jsp?id=" + escape(id);
 
     $.ajax({url: url, dataType: "html", success: function (result)
@@ -85,7 +85,7 @@ function getcpByID(id) {
 }
 
 function getinsByID(id) {
-    var ajaxRequest = new XMLHttpRequest();
+    //var ajaxRequest = new XMLHttpRequest();
     var url = "R4ins.jsp?id=" + escape(id);
 
     $.ajax({url: url, dataType: "html", success: function (result)
@@ -109,7 +109,7 @@ function getinsByID(id) {
 
 // function for getting whole tables by table names 
 function getTables() {
-    var ajaxRequest = new XMLHttpRequest();
+    //var ajaxRequest = new XMLHttpRequest();
     var table = document.getElementById("tables");
     var url = "R3.jsp?id=" + escape(table.value);
     $.ajax({url: url, dataType: "html", success: function (result)
@@ -128,6 +128,30 @@ function getTables() {
 
 
 }
+
+function getTradeInfo() {
+    //var ajaxRequest = new XMLHttpRequest();
+    var info = document.getElementById("info");
+    var url = "R58.jsp?id=" + escape(info.value);
+    $.ajax({url: url, dataType: "html", success: function (result)
+        {
+            //displayString(result);
+            //displayData(result);
+            
+            res = JSON.parse(result);
+            document.getElementById("dataShow").innerHTML = "";
+            //$("#dataShow").html("");
+
+            //var listRes = [res];
+            buildHtmlTable(res, "#dataShow");
+
+        }});
+
+
+}
+
+
+
 
 function test_getTables() {
 

@@ -1,5 +1,5 @@
 <%-- 
-    Document   : indexR58
+    Document   : indexR58.jsp
     Created on : 16-Aug-2017, 13:42:12
     Author     : Richard
 --%>
@@ -75,12 +75,12 @@
                         <hr class="small">
 
                         <form >
-                            <select id="tables" name="View Trading">
+                            <select id="info" name="View Trading">
                                 <option disabled selected value> -- select -- </option>
-                                <option value="buy" style="color:black">Average Buy</option>
-                                <option value="sell" style="color:black">Average Sell</option>
-                                <option value="profit" style="color:black">Net Profit</option>
-                                <option value="rprofit" style="color:black">Real Profit?</option>
+                                <option value="avg" style="color:black">Average Buy and Sell</option>
+                                <option value="quantity" style="color:black">Net Trade</option>
+                                <option value="profit" style="color:black">Realized Profit</option>
+                                <option value="eprofit" style="color:black">Effective Profit</option>
                             </select>
                             <button type="button" onclick="getTables()">Submit</button>
                         </form>
