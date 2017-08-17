@@ -73,13 +73,13 @@
                         <hr class="small">
 
                         <form >
-                            <select id="tables" name="Select Tables">
+                            <select id="tables" name="Select Tables" onchange="getTables()">
                                 <option disabled selected value> -- select an table -- </option>
                                 <option value="deal" style="color:black">deal</option>
                                 <option value="instrument" style="color:black">instrument</option>
                                 <option value="counterparty" style="color:black">counter-party</option>
                             </select>
-                            <button type="button" onclick="getTables()">Submit</button>
+                            
                         </form>
                         <style>
                             table {
@@ -103,6 +103,41 @@
 
 
                         </div>
+                        
+                        <form>
+                            <select id="f_instrument"  onchange="getTables()">
+                                <option disabled selected value> -- select an table -- </option>
+                                <option value="deal" style="color:black">deal</option>
+                                <option value="instrument" style="color:black">instrument</option>
+                                <option value="counterparty" style="color:black">counter-party</option>
+                            </select>
+                            
+                            <select id="f_counterparty">
+                                <option disabled selected value> -- select an table -- </option>
+                                <option value="deal" style="color:black">deal</option>
+                                <option value="instrument" style="color:black">instrument</option>
+                                <option value="counterparty" style="color:black">counter-party</option>
+                            </select>
+                            
+                            <select id="f_type">
+                                <option disabled selected value> -- select an table -- </option>
+                                <option value="B" style="color:black">Buy</option>
+                                <option value="S" style="color:black">Sell</option>
+                               
+                            </select>
+                            <button style="color:black" type="button" onclick="dealFilter()">Submit</button>
+                            
+                            
+                            
+                        </form>
+                      
+
+                        <div id="dataShow2">
+                        
+                        
+                        
+                        
+                        
                     </div>
                     <!-- /.col-lg-10 -->
                 </div>

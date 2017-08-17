@@ -5,67 +5,44 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <%@ page import="java.io.*,java.util.*" %>
-<%@ page import="com.db.awesomeapp.dao.DealDao" %>
-<%@ page import="com.db.awesomeapp.dao.CounterPartyDao" %>
-<%@ page import="com.db.awesomeapp.dao.InstrumentDao" %>
-<%@ page import="com.db.awesomeapp.models.Deal" %>
-<%@ page import="com.db.awesomeapp.models.CounterParty" %>
-<%@ page import="com.db.awesomeapp.models.Instrument" %>
-<%@ page import="com.db.awesomeapp.mysql.FunctionHandler" %>
 <%@ page import="com.db.awesomeapp.mysql.ConnectionHandler" %>
-<%@ page import="com.db.awesomeapp.JsonHelper" %>
+<%@ page import="com.db.awesomeapp.mysql.FunctionHandler" %>
 
 
 <%
-    String info = request.getParameter("id");
-    String result = "<h1>Input is INVALID</h1>";
+    String requirement = request.getParameter("id");
+    String result = "tbd";
+    ConnectionHandler connectionHandler = new ConnectionHandler();
+    FunctionHandler functionHandler = new FunctionHandler(connectionHandler.getConnection());
 
-    if (info != "" || info != null) {
+    switch (requirement) {
+        case "avg":
+            
+            break;
 
-        ConnectionHandler connectionHandler = new ConnectionHandler();
-        JsonHelper json = new JsonHelper();
-        FunctionHandler fhandler = new FunctionHandler(connectionHandler.getConnection());
-        
-        List<Deal> deal;
-        List<CounterParty> counterparty;
-        List<Instrument> instrument;
+        case "quantity":
 
-        //CounterParty counterparty = new CounterParty();
-        switch (info) {
-            case "avg":
-                
-                result = json.getJsonOf(deal);
-                break;
+            result = functionHandler.getJsonTradesQuantity();
 
-            case "quantity":
-                CounterPartyDao counterpartySearch = new CounterPartyDao(connectionHandler.getConnection());
-                counterparty = counterpartySearch.getAll();
-                //result = counterparty.toString();
-                result = json.getJsonOf(counterparty);
-                break;
+            break;
 
-            case "profit":
-                InstrumentDao instrumentDaoSearch = new InstrumentDao(connectionHandler.getConnection());
-                instrument = instrumentDaoSearch.getAll();
-                //result = counterparty.toString();
-                result = json.getJsonOf(instrument);
-                break;
-                
-            case "eprofit":
-                InstrumentDao instrumentDaoSearch = new InstrumentDao(connectionHandler.getConnection());
-                instrument = instrumentDaoSearch.getAll();
-                //result = counterparty.toString();
-                result = json.getJsonOf(instrument);
-                break;
-        }
+        case "profit":
 
-        out.flush();
-        out.print(result);
-
-    } else {
-        out.flush();
-        out.println(result);
-        out.flush();
+            result = functionHandler.getJsonRealisedRate();
+            break;
+        case "eprofit":
+            
+            result = functionHandler.getJsonEffectiveRate();
+            break;
     }
+
+    out.flush();
+    out.print(result);
+    //out.print(json);
+
+
 %>
+
+
