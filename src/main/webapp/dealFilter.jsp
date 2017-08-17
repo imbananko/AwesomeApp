@@ -15,12 +15,13 @@
     String instrument = request.getParameter("instrument");
     String counterparty = request.getParameter("counterparty");
     String type = request.getParameter("type");
+    String top = request.getParameter("top");
 
     String result;
 
     ConnectionHandler connectionHandler = new ConnectionHandler();
     FunctionHandler functionHandler = new FunctionHandler(connectionHandler.getConnection());
-    result = functionHandler.getJsonDealInfo(counterparty, instrument, type);
+    result = functionHandler.getJsonDealInfo(counterparty, instrument, type,top);
 
     out.flush();
     out.print(result);

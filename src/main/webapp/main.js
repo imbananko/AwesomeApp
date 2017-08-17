@@ -146,8 +146,9 @@ function dealFilter() {
     var instrument = document.getElementById("f_instrument");
     var party = document.getElementById("f_counterparty");
     var type = document.getElementById("f_type");
-    var url = "dealFilter.jsp?instrument=" + escape(instrument.value) + "&counterparty=" + escape(party.value) + "&type=" + escape(type.value);
-
+    var top = document.getElementById("f_top");
+    var url = "dealFilter.jsp?instrument=" + escape(instrument.value) + "&counterparty=" + escape(party.value) + "&type=" + escape(type.value)+"&top="+ escape(top.value);
+    
     //var test = document.getElementById("dataShow2");
     //test.innerHTML+=instrument.value;
 
@@ -162,7 +163,8 @@ function dealFilter() {
             //displayData(result);
 
 
-            res = JSON.parse(result);
+            //res = JSON.parse(result);
+            res = JSON.parse(result).results;
             document.getElementById("dataShow2").innerHTML = "";
             //$("#dataShow").html("");
 
@@ -188,10 +190,12 @@ function getTradeInfo() {
         {
             //displayString(result);
             //displayData(result);
+            //displayString(result);
 
 
-
-            res = JSON.parse(result);
+            res = JSON.parse(result).results;
+            //res1 = JSON.parse(res);
+            
             document.getElementById("dataShow").innerHTML = "";
             //$("#dataShow").html("");
 

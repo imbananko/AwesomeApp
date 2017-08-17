@@ -13,22 +13,37 @@
 <%@ page import="java.sql.SQLException" %>
 
 
+
+
+
+
+
 <%
     String requirement = request.getParameter("id");
     String result = "tbd";
-
+    
     //out.print(requirement);
+    
     ConnectionHandler connectionHandler = new ConnectionHandler();
+    FunctionHandler functionHandler = new FunctionHandler(connectionHandler.getConnection());
+     
+    
+    //DealDao dealSearch = new DealDao(connectionHandler.getConnection());
+    
+    /*
     Connection c = null;
         try {
             c = connectionHandler.getConnection();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    FunctionHandler functionHandler = new FunctionHandler(c);
+    
+    */
+    
 
     switch (requirement) {
         case "avg":
+                
 
             break;
 

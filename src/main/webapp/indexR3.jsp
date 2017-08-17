@@ -125,6 +125,10 @@
                                 <option value="S" style="color:black">Sell</option>
                                
                             </select>
+                            
+                            <p stype="display:inline">Top?: <input type="text" id="f_top" name="id"></p>
+                            
+                            
                             <button style="color:black" type="button" onclick="dealFilter()">Submit</button>
                             
                             
