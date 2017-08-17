@@ -48,13 +48,10 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="landing.jsp">Dashboard</a></li>
-                <li><a href="index.html">Logout</a></li>
+                <li><a style="color:#428bca; font-weight:bold; font-size: 2em" href="landing.jsp">Dashboard</a></li>
+                <li><a style="color:#428bca; font-weight:bold; font-size: 2em" href="index.html">Logout</a></li>
                 <li><img src="img/dbLogo.jpg" style="width:45px;height:45px;" /></li>
               </ul>
-              <form class="navbar-form navbar-right">
-                <input type="text" class="form-control" placeholder="Search...">
-              </form>
             </div>
           </div>
         </nav>
