@@ -15,6 +15,10 @@ public class InstrumentDao extends AbstractDao<Instrument, Integer> {
         super(connection);
     }
 
+    public void setConnection(Connection c) {
+        connection = c;
+    }
+
     @Override
     protected String getSelectQuery() {
         return "SELECT * FROM db_grad_cs_1917.instrument ";
@@ -62,8 +66,8 @@ public class InstrumentDao extends AbstractDao<Instrument, Integer> {
         try {
             while (rs.next()) {
                 Instrument instrument = new Instrument();
-                instrument.setInstrumentId(rs.getInt("instrument_id"));
-                instrument.setInstrumentName(rs.getString("instrument_name"));
+                instrument.setInstrumentId(rs.getInt(1));
+                instrument.setInstrumentName(rs.getString(2));
                 result.add(instrument);
             }
         } catch (SQLException e) {

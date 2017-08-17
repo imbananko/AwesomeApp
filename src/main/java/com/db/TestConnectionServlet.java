@@ -25,6 +25,9 @@ public class TestConnectionServlet extends HttpServlet {
             e.printStackTrace();
         }
 
+
+
+
         try {
             if ( connection != null && connection.isValid(3)) {
                 request.setAttribute("connectionStatus", "Connected <br/>");
