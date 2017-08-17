@@ -4,7 +4,7 @@
     Author     : Richard
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ page import="java.io.*,java.util.*" %>
 <%@ page import="com.db.awesomeapp.dao.UserDao" %>
 <%@ page import="com.db.awesomeapp.models.User" %>

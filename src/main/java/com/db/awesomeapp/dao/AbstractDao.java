@@ -61,6 +61,4 @@ public abstract class AbstractDao<T, PK extends Serializable> {
         list = parseResultSet(rs);
         return list;
     }
-
-
 }
