@@ -57,7 +57,7 @@ public class InstrumentDao extends AbstractDao<Instrument, Integer> {
     }
 
     @Override
-    protected List<Instrument> parseResultSet(ResultSet rs) throws SQLException {
+    public List<Instrument> parseResultSet(ResultSet rs) throws SQLException {
         LinkedList<Instrument> result = new LinkedList<>();
         try {
             while (rs.next()) {

@@ -7,6 +7,14 @@ public class Instrument {
     private int instrumentId;
     private String instrumentName;
 
+    public Instrument(int instrumentId, String instrumentName) {
+        this.instrumentId = instrumentId;
+        this.instrumentName = instrumentName;
+    }
+
+    public Instrument() {
+    }
+
     public int getInstrumentId() {
         return instrumentId;
     }
