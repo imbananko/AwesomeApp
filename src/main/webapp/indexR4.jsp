@@ -16,52 +16,49 @@
 
         <!-- Custom CSS -->
         <link href="css/stylish-portfolio.css" rel="stylesheet">
-
+        <link href="css/dashboard.css" rel="stylesheet">
+        
         <!-- Custom Fonts -->
         <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
     </head>
 
-    <body>
-        <!-- Navigation -->        
-        <nav class="navbar navbar-default" style="background-color: #BDBAAE">
+    <body style="background: url(img/frankfurtDB.jpg) no-repeat center center scroll; opacity:0.7">
+        <!-- navbar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top">
           <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="indexR3.jsp"> 
-                <img src="img/dbLogo.jpg" style="width:30px;height:30px;" />
-              </a>
+              <a class="navbar-brand" href="index.html">dbTradeViewer</a>
             </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav">
-                <li class="btn btn-default" style="color:black"><a href="indexR3.jsp">View All Deals (R3)</a></li>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="landing.jsp">Dashboard</a></li>
+                <li><a href="indexR3.jsp">View All Deals</a></li>
+                <li><a href="indexR4.jsp">Relationships</a></li>
+                <li><a href="indexR58.jsp">Analysis</a></li>
+                <li><a href="index.html">Logout</a></li>
+                <li><img src="img/dbLogo.jpg" style="width:45px;height:45px;" /></li>
               </ul>
-              <ul class="nav navbar-nav">
-                <li class="btn btn-default" style="color:black"><a href="indexR4.jsp">Query for Relationships (R4)</a></li>
-              </ul>
-              <ul class="nav navbar-nav">
-                <li class="btn btn-default" style="color:black"><a href="indexR58.jsp">Analysis (R5-8)</a></li>
-              </ul>
-
-            </div><!-- /.navbar-collapse -->
-          </div><!-- /.container-fluid -->
-        </nav>        
+              <form class="navbar-form navbar-right">
+                <input type="text" class="form-control" placeholder="Search...">
+              </form>
+            </div>
+          </div>
+        </nav>      
         
         
-        <section style="color:black" style="background-color: #BDBAAE" id="services" class="services bg-primary text-white">
-            <div class="container">
+        <section id="portfolio" class="portfolio">
+            <div style="background-color: #f5f5f5" class="container">
                 <div class="row text-center">
                     <div class="col-lg-10 mx-auto">
-                        <h2>Search by deal ID</h2>
+                        <h2 style="font-weight:bold">Search by deal ID</h2>
                         <hr class="small">
 
                         <form>

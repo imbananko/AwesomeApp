@@ -221,6 +221,7 @@ function load_jsp() {
 
 function testConnection() {
     document.getElementById("showConn").innerHTML = '<object type="text/html" data="TestConnection" ></object>';
+
 }
 
 function displayData(message) {

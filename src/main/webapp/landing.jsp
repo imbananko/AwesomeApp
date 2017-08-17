@@ -1,10 +1,8 @@
 <%-- 
-    Document   : indexR58.jsp
-    Created on : 16-Aug-2017, 13:42:12
-    Author     : Richard
+    Document   : indexR3.jsp
+    Created on : 14-Aug-2017, 09:59:25
+    Author     : Richard, Vlad, Jackie 
 --%>
-
-
 
 <!DOCTYPE html>
 <html>
@@ -21,21 +19,21 @@
 
         <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/dashboard.css" rel="stylesheet">
 
         <!-- Custom CSS -->
         <link href="css/stylish-portfolio.css" rel="stylesheet">
+        <link href="css/dashboard.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
         <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
-        <title>View All Deals</title>
+        <title>Landing Dashboard</title>
 
     </head>
 
-    <body style="background: url(img/frankfurtDB.jpg) no-repeat center center scroll; opacity:0.7">
-       
+    <body style="background: url(img/frankfurtDB.jpg) no-repeat center center scroll; opacity:0.8">
+        
         <!-- navbar -->
         <nav class="navbar navbar-inverse navbar-fixed-top">
           <div class="container-fluid">
@@ -51,9 +49,6 @@
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="landing.jsp">Dashboard</a></li>
-                <li><a href="indexR3.jsp">View All Deals</a></li>
-                <li><a href="indexR4.jsp">Relationships</a></li>
-                <li><a href="indexR58.jsp">Analysis</a></li>
                 <li><a href="index.html">Logout</a></li>
                 <li><img src="img/dbLogo.jpg" style="width:45px;height:45px;" /></li>
               </ul>
@@ -62,57 +57,44 @@
               </form>
             </div>
           </div>
-        </nav>    
+        </nav>
 
-        <section id="portfolio" class="portfolio">
-            <div style="background-color: #f5f5f5" class="container">
-                <div class="row text-center">
-                    <div class="col-lg-10 mx-auto">
-                        <h2 style="font-weight:bold">Trading Details</h2>
-                        <hr class="small">
-
-                        <form >
-                            <select id="info" name="View Trading">
-                                <option disabled selected value> -- select -- </option>
-                                <option value="avg" style="color:black">Average Buy and Sell</option>
-                                <option value="quantity" style="color:black">Net Trade</option>
-                                <option value="profit" style="color:black">Realized Profit</option>
-                                <option value="eprofit" style="color:black">Effective Profit</option>
-                            </select>
-                            <button type="button" onclick="getTradeInfo()">Submit</button>
-                        </form>
-                        <style>
-                            table {
-                                font-family: arial, sans-serif;
-                                border-collapse: collapse;
-                                width: 100%;
-                                color: black;
-                            }
-
-                            td, th {
-                                border: 1px solid #dddddd;
-                                text-align: left;
-                                padding: 8px;
-                            }
-
-                            tr:nth-child(even) {
-                                background-color: #dddddd;
-                            }
-                        </style>
-                        <div id="dataShow">
-
-
-                        </div>
-                    </div>
-                    <!-- /.col-lg-10 -->
-                </div>
-                <!-- /.row -->
+    
+    <div class="container-fluid">
+      <div class="row">
+        
+        <!--<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">-->
+        <div>
+            <div class="row placeholders" style="background-color: #f5f5f5">
+                <h1 class="page-header" style="color:#428bca; font-weight:bold">Welcome!</h1>
             </div>
-            <!-- /.container -->
-        </section>
-
-
-
+         
+          <div class="row placeholders" style="background-color: #f5f5f5">
+            <div class="col-xs-6 col-sm-3 placeholder">
+                <br>
+                <img src="img/analysis_1.png" width="200" height="200" class="img-responsive" alt=""/>
+                <h4><a style="font-weight:bold" href="indexR3.jsp">View All Deals</a></h4>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+                <br>
+                <img src="img/relationship.png" width="200" height="200" class="img-responsive" alt=""/>
+                <h4 ><a style="font-weight:bold" href="indexR4.jsp">Relationships</a></h4>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <br>
+               <img src="img/all_deals.png" width="200" height="200" class="img-responsive" alt=""/>
+              <h4><a style="font-weight:bold" href="indexR58.jsp">Analysis</a></h4>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+                <br>
+                <img src="img/profile.png" width="200" height="200" class="img-responsive" alt=""/>
+                <h4 style="font-weight:bold">Profile</h4>
+            </div>            
+          </div>
+        </div>
+      </div>
+    </div>
+        
 
         <!-- Bootstrap core JavaScript -->
         <script src="vendor/jquery/jquery.min.js"></script>
