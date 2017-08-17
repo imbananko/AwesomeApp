@@ -78,12 +78,17 @@
                                 <option value="counterparty" style="color:black">Counter Party</option>
                             </select>
 
+<<<<<<< HEAD
 
                             
 
                             <button style="color:black" type="button" onclick="getTables()">Submit</button>
 
                             
+
+
+
+                            <button style="color:black" type="button" onclick="getTables()">Submit</button>
 
 
 
