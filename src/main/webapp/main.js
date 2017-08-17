@@ -26,7 +26,7 @@ function verifyUser() {
                     $("#messageID").load("indexR3.jsp");
                 } else {
                     $("#messageID").html("");
-                    $("#messageID").html("<p>  User ID & Password Invalid　</p>");
+                    $("#messageID").html("User ID & Password Invalid");
 
                     //var data = document.getElementById("showData");
 
@@ -37,8 +37,7 @@ function verifyUser() {
                 }
 
             }});
-    } 
-    else {
+    } else {
         $("#messageID").html("");
         $("#messageID").html("<p>  User ID & Password Invalid　</p>");
     }
@@ -85,6 +84,7 @@ function getcpByID(id) {
             res = JSON.parse(result);
             var listRes = [res];
             buildHtmlTable(listRes, "#dataShow");
+
             //var data = document.getElementById("dataShow");
             // data.insertAdjacentHTML("beforeend", res.id);
 
@@ -142,16 +142,25 @@ function getTables() {
 
 }
 
-function dealFilter(){
+function dealFilter() {
     var instrument = document.getElementById("f_instrument");
-    var party = document.getElementById("f_couterparty");
+    var party = document.getElementById("f_counterparty");
     var type = document.getElementById("f_type");
-    var url = "dealFilter.jsp?instrument=" + escape(instrument.value)+"&couterparty="+escape(party.value)+"&type="+escape(type.value);
-    
+    var url = "dealFilter.jsp?instrument=" + escape(instrument.value) + "&counterparty=" + escape(party.value) + "&type=" + escape(type.value);
+
+    //var test = document.getElementById("dataShow2");
+    //test.innerHTML+=instrument.value;
+
+    //$("#dataShow2").append(instrument.value);
+    //$("#dataShow2").append(party.value);
+    //$("#dataShow2").append(type.value);
+
+
     $.ajax({url: url, dataType: "html", success: function (result)
         {
             //displayString(result);
             //displayData(result);
+
 
             res = JSON.parse(result);
             document.getElementById("dataShow2").innerHTML = "";
@@ -160,8 +169,10 @@ function dealFilter(){
             //var listRes = [res];
             buildHtmlTable(res, "#dataShow2");
 
+
+
         }});
-    
+
 }
 
 
@@ -169,10 +180,16 @@ function getTradeInfo() {
     //var ajaxRequest = new XMLHttpRequest();
     var info = document.getElementById("info");
     var url = "R58.jsp?id=" + escape(info.value);
+    //$("#dataShow").append(info.value);
+    //$("#dataShow2").append(party.value);
+    //$("#dataShow2").append(type.value);
+
     $.ajax({url: url, dataType: "html", success: function (result)
         {
             //displayString(result);
             //displayData(result);
+
+
 
             res = JSON.parse(result);
             document.getElementById("dataShow").innerHTML = "";

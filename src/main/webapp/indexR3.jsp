@@ -105,22 +105,22 @@
                         </div>
                         
                         <form>
-                            <select id="f_instrument"  onchange="getTables()">
-                                <option disabled selected value> -- select an table -- </option>
-                                <option value="deal" style="color:black">deal</option>
-                                <option value="instrument" style="color:black">instrument</option>
-                                <option value="counterparty" style="color:black">counter-party</option>
+                            <select id="f_instrument">
+                                <option disabled selected value> -- select instrument -- </option>
+                                <option value="Astronomica" style="color:black">Astronomica</option>
+                                <option value="Borealis" style="color:black">Borealis</option>
+                                <option value="Celestial" style="color:black">Celestial</option>
                             </select>
                             
                             <select id="f_counterparty">
-                                <option disabled selected value> -- select an table -- </option>
-                                <option value="deal" style="color:black">deal</option>
-                                <option value="instrument" style="color:black">instrument</option>
-                                <option value="counterparty" style="color:black">counter-party</option>
+                                <option disabled selected value> -- select counterparty -- </option>
+                                <option value="Lewis" style="color:black">Lewis</option>
+                                <option value="Selvyn" style="color:black">Selvyn</option>
+                                <option value="Richard" style="color:black">Richard</option>
                             </select>
                             
                             <select id="f_type">
-                                <option disabled selected value> -- select an table -- </option>
+                                <option disabled selected value> -- select buy or sell -- </option>
                                 <option value="B" style="color:black">Buy</option>
                                 <option value="S" style="color:black">Sell</option>
                                
