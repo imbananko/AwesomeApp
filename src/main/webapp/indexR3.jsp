@@ -80,7 +80,13 @@
 
 
                             
+
                             <button style="color:black" type="button" onclick="getTables()">Submit</button>
+
+                            
+
+
+
                         </form>
                         <style>
                             table {
