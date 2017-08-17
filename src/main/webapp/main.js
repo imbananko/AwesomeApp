@@ -212,7 +212,9 @@ function getTradeInfo() {
 
 
 function load_jsp() {
-    document.write(document.getElementById("messageID").innerHTML = '<object style="height:100%; width:100%" type="text/html" data="indexR3.jsp" ></object>');
+
+    document.write(document.getElementById("showData").innerHTML = '<object style="height:100%; width:100%" type="text/html" data="landing.jsp" ></object>');
+
     //document.write('<object type="text/html" data="indexR3.jsp" ></object>');
 //    window.location.href = "indexR3.jsp";
 
@@ -221,6 +223,7 @@ function load_jsp() {
 
 function testConnection() {
     document.getElementById("showConn").innerHTML = '<object type="text/html" data="TestConnection" ></object>';
+
 }
 
 function displayData(message) {
