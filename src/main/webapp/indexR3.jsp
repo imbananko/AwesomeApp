@@ -44,15 +44,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="index.html">dbTradeViewer</a>
+              <a style="font-weight:bold; font-size: 2em" class="navbar-brand" href="index.html">dbTradeViewer</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="landing.jsp">Dashboard</a></li>
-                <li><a href="indexR3.jsp">View All Deals</a></li>
-                <li><a href="indexR4.jsp">Relationships</a></li>
-                <li><a href="indexR58.jsp">Analysis</a></li>
-                <li><a href="index.html">Logout</a></li>
+                <li><a style="font-weight:bold; font-size: 2em" href="landing.jsp">Dashboard</a></li>
+                <li><a style="font-weight:bold; font-size: 2em" href="indexR3.jsp">View All Deals</a></li>
+                <li><a style="font-weight:bold; font-size: 2em" href="indexR4.jsp">Relationships</a></li>
+                <li><a style="font-weight:bold; font-size: 2em" href="indexR58.jsp">Analysis</a></li>
+                <li><a style="font-weight:bold; font-size: 2em" href="index.html">Logout</a></li>
                 <li><img src="img/dbLogo.jpg" style="width:45px;height:45px;" /></li>
               </ul>
               <form class="navbar-form navbar-right">
@@ -93,26 +93,31 @@
 
 
                         </form>
-                        <style>
-                            table {
-                                font-family: arial, sans-serif;
-                                border-collapse: collapse;
-                                width: 100%;
-                                color: black;
-                            }
+                        
+                        <div align=center> 
+                            <style>
+                                table {
+                                    font-family: arial, sans-serif;
+                                    border-collapse: collapse;
+                                    width: 100%;
+                                }
 
-                            td, th {
-                                border: 1px solid #dddddd;
-                                text-align: left;
-                                padding: 8px;
-                            }
+                                td, th {
+                                    border: 1px solid #dddddd;
+                                    text-align: center;
+                                    padding: 8px;
+                                    color: black;
+                                    font-weight:bold;
+                                }
 
-                            tr:nth-child(even) {
-                                background-color: #dddddd;
-                            }
-                        </style>
-                        <div id="dataShow">
-
+                                tr:nth-child(even) {
+                                    background-color: #dddddd;
+                                }
+                            </style>
+                            
+                        </div>
+                        
+                        <div align=center id="dataShow">
 
                         </div>
                         
