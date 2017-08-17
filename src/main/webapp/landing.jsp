@@ -32,7 +32,7 @@
 
     </head>
 
-    <body style="background: url(img/frankfurtDB.jpg) no-repeat center center scroll; opacity:0.7">
+    <body style="background: url(img/frankfurtDB.jpg) no-repeat center center scroll; opacity:0.8">
         
         <!-- navbar -->
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -49,7 +49,8 @@
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="landing.jsp">Dashboard</a></li>
-                <li><a href="#">Help</a></li>
+                <li><a href="index.html">Logout</a></li>
+                <li><img src="img/dbLogo.jpg" style="width:45px;height:45px;" /></li>
               </ul>
               <form class="navbar-form navbar-right">
                 <input type="text" class="form-control" placeholder="Search...">
@@ -64,24 +65,30 @@
         
         <!--<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">-->
         <div>
-          <h1 class="page-header" style="color:#428bca; font-weight:bold">Welcome!</h1>
-
-          <div class="row placeholders">
+            <div class="row placeholders" style="background-color: #f5f5f5">
+                <h1 class="page-header" style="color:#428bca; font-weight:bold">Welcome!</h1>
+            </div>
+         
+          <div class="row placeholders" style="background-color: #f5f5f5">
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4><a style="color:white; font-weight:bold" href="indexR3.jsp">View All Deals</a></h4>
+                <br>
+                <img src="img/analysis_1.png" width="200" height="200" class="img-responsive" alt=""/>
+                <h4><a style="font-weight:bold" href="indexR3.jsp">View All Deals</a></h4>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4 ><a style="color:white; font-weight:bold" href="indexR4.jsp">Relationships</a></h4>
+                <br>
+                <img src="img/relationship.png" width="200" height="200" class="img-responsive" alt=""/>
+                <h4 ><a style="font-weight:bold" href="indexR4.jsp">Relationships</a></h4>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4><a style="color:white; font-weight:bold" href="indexR58.jsp">Analysis</a></h4>>
+              <br>
+               <img src="img/all_deals.png" width="200" height="200" class="img-responsive" alt=""/>
+              <h4><a style="font-weight:bold" href="indexR58.jsp">Analysis</a></h4>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4 style="color:white; font-weight:bold">Profile</h4>
+                <br>
+                <img src="img/profile.png" width="200" height="200" class="img-responsive" alt=""/>
+                <h4 style="font-weight:bold">Profile</h4>
             </div>            
           </div>
         </div>
