@@ -8,6 +8,7 @@ public class ConnectionHandler {
 
     private String user = "test-user";                                               //sql login
     private String password = "test-user";                                            //sql password
+
     private String url = "jdbc:mysql://34.250.108.7/db_grad_cs_1917";    //imbananko's docker mysql url
     private String driver = "com.mysql.jdbc.Driver";                            //driver name
 
