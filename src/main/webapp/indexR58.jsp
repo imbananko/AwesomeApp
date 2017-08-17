@@ -79,7 +79,7 @@
                                 <option value="profit" style="color:black">Realized Profit</option>
                                 <option value="eprofit" style="color:black">Effective Profit</option>
                             </select>
-                            <button type="button" onclick="getTables()">Submit</button>
+                            <button type="button" onclick="getTradeInfo()">Submit</button>
                         </form>
                         <style>
                             table {

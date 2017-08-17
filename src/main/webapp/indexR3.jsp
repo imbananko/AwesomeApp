@@ -71,13 +71,16 @@
                         <hr class="small">
 
                         <form >
-                            <select id="tables" name="Select Tables">
+                            <select id="tables" name="Select Tables" onchange="getTables()">
                                 <option disabled selected value> -- select an table -- </option>
                                 <option value="deal" style="color:black">Deal</option>
                                 <option value="instrument" style="color:black">Instrument</option>
                                 <option value="counterparty" style="color:black">Counter Party</option>
                             </select>
+
                             <button style="color:black" type="button" onclick="getTables()">Submit</button>
+
+
                         </form>
                         <style>
                             table {
@@ -101,6 +104,45 @@
 
 
                         </div>
+                        
+                        <form>
+                            <select id="f_instrument">
+                                <option disabled selected value> -- select instrument -- </option>
+                                <option value="Astronomica" style="color:black">Astronomica</option>
+                                <option value="Borealis" style="color:black">Borealis</option>
+                                <option value="Celestial" style="color:black">Celestial</option>
+                            </select>
+                            
+                            <select id="f_counterparty">
+                                <option disabled selected value> -- select counterparty -- </option>
+                                <option value="Lewis" style="color:black">Lewis</option>
+                                <option value="Selvyn" style="color:black">Selvyn</option>
+                                <option value="Richard" style="color:black">Richard</option>
+                            </select>
+                            
+                            <select id="f_type">
+                                <option disabled selected value> -- select buy or sell -- </option>
+                                <option value="B" style="color:black">Buy</option>
+                                <option value="S" style="color:black">Sell</option>
+                               
+                            </select>
+                            
+                            <p stype="display:inline">Top?: <input type="text" id="f_top" name="id"></p>
+                            
+                            
+                            <button style="color:black" type="button" onclick="dealFilter()">Submit</button>
+                            
+                            
+                            
+                        </form>
+                      
+
+                        <div id="dataShow2">
+                        
+                        
+                        
+                        
+                        
                     </div>
                     <!-- /.col-lg-10 -->
                 </div>
