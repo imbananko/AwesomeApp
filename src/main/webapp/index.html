@@ -35,10 +35,11 @@
 
     </head>
 
-    <body>
+    <body> 
         <!-- Navigation -->
         <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
         <nav id="sidebar-wrapper">
+            <script> testConnection();</script>
             <ul class="sidebar-nav">
                 <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
                 <li class="sidebar-brand">
@@ -61,13 +62,18 @@
 
         <!-- Header -->
         <header id="top" class="header">
-            <br> <br> <br> <br> <br> <br> <br> <br>
-            <hr /> 
+
+            <div class="alert alert-info alert-dismissible" role="alert" style="width:430px; height:50px; float: left">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Congratulations!</strong> You are now connected to the database!
+            </div>
+            
+            <br> <br> <br> <br> <br> <br> <br> <br> <br>
+            
             <div class="text-vertical-center">
-                <h1 style="color:white;">dbTradeViewer</h1>
+                <h1 style="color:#FFFFFF;">dbTradeViewer</h1>
             </div>
             <hr /> 
-            
             
             <div class="container">
                 <div class="login-box">
@@ -104,11 +110,6 @@
                 </div>
             </div>
         </header>
-
-        
-        <div id="showConn">
-            <script> testConnection();</script>
-        </div>
 
         <div id="showData"></div>
 
