@@ -23,7 +23,8 @@ function verifyUser() {
 
                 if (result.length == 17) {
                     //load_jsp();
-                    $("#messageID").load("indexR3.jsp");
+                    //$("#messageID").load("indexR3.jsp");
+                    load_jsp();
                 } else {
                     $("#messageID").html("");
                     $("#messageID").html("User ID & Password Invalid");
@@ -147,8 +148,8 @@ function dealFilter() {
     var party = document.getElementById("f_counterparty");
     var type = document.getElementById("f_type");
     var top = document.getElementById("f_top");
-    var url = "dealFilter.jsp?instrument=" + escape(instrument.value) + "&counterparty=" + escape(party.value) + "&type=" + escape(type.value)+"&top="+ escape(top.value);
-    
+    var url = "dealFilter.jsp?instrument=" + escape(instrument.value) + "&counterparty=" + escape(party.value) + "&type=" + escape(type.value) + "&top=" + escape(top.value);
+
     //var test = document.getElementById("dataShow2");
     //test.innerHTML+=instrument.value;
 
@@ -195,7 +196,7 @@ function getTradeInfo() {
 
             res = JSON.parse(result).results;
             //res1 = JSON.parse(res);
-            
+
             document.getElementById("dataShow").innerHTML = "";
             //$("#dataShow").html("");
 
@@ -211,7 +212,7 @@ function getTradeInfo() {
 
 
 function load_jsp() {
-    document.write(document.getElementById("showData").innerHTML = '<object style="height:100%; width:100%" type="text/html" data="indexR3.jsp" ></object>');
+    document.write(document.getElementById("messageID").innerHTML = '<object style="height:100%; width:100%" type="text/html" data="indexR3.jsp" ></object>');
     //document.write('<object type="text/html" data="indexR3.jsp" ></object>');
 //    window.location.href = "indexR3.jsp";
 
