@@ -15,23 +15,36 @@ function verifyUser() {
     //var ajaxRequest = new XMLHttpRequest();
     var userId = document.getElementById("f_userid");
     var password = document.getElementById("f_password");
-    var url = "login.jsp?id=" + escape(userId.value) + "&pwd=" + escape(password.value);
+    if (userId !== "" && password !== "") {
+        var url = "login.jsp?id=" + escape(userId.value) + "&pwd=" + escape(password.value);
 
-    $.ajax({url: url, dataType: "text", success: function (result)
-        {
+        $.ajax({url: url, dataType: "text", success: function (result)
+            {
 
-            if (result.length == 17) {
-                load_jsp();
-            } else {
-                var data = document.getElementById("showData");
-                data.innerHTML += "User ID & Password Invalid";
+                if (result.length == 17) {
+                    //load_jsp();
+                    //$("#messageID").load("indexR3.jsp");
+                    load_jsp();
+                } else {
+                    $("#messageID").html("");
+                    $("#messageID").html("User ID & Password Invalid");
+
+                    //var data = document.getElementById("showData");
 
 
-            }
+                    //data.innerHTML += "User ID & Password Invalid";
 
-        }});
 
+                }
+
+            }});
+    } else {
+        $("#messageID").html("");
+        $("#messageID").html("<p>  User ID & Password Invalid　</p>");
+    }
 }
+
+
 
 //function for getting 1 deal record by Deal ID
 function getDealByID() {
@@ -72,6 +85,7 @@ function getcpByID(id) {
             res = JSON.parse(result);
             var listRes = [res];
             buildHtmlTable(listRes, "#dataShow");
+
             //var data = document.getElementById("dataShow");
             // data.insertAdjacentHTML("beforeend", res.id);
 
@@ -116,7 +130,7 @@ function getTables() {
         {
             //displayString(result);
             //displayData(result);
-            
+
             res = JSON.parse(result);
             document.getElementById("dataShow").innerHTML = ""; 
             //$("#dataShow").html("");
@@ -129,16 +143,60 @@ function getTables() {
 
 }
 
-function getTradeInfo() {
-    //var ajaxRequest = new XMLHttpRequest();
-    var info = document.getElementById("info");
-    var url = "R58.jsp?id=" + escape(info.value);
+function dealFilter() {
+    var instrument = document.getElementById("f_instrument");
+    var party = document.getElementById("f_counterparty");
+    var type = document.getElementById("f_type");
+    var top = document.getElementById("f_top");
+    var url = "dealFilter.jsp?instrument=" + escape(instrument.value) + "&counterparty=" + escape(party.value) + "&type=" + escape(type.value) + "&top=" + escape(top.value);
+
+    //var test = document.getElementById("dataShow2");
+    //test.innerHTML+=instrument.value;
+
+    //$("#dataShow2").append(instrument.value);
+    //$("#dataShow2").append(party.value);
+    //$("#dataShow2").append(type.value);
+
+
     $.ajax({url: url, dataType: "html", success: function (result)
         {
             //displayString(result);
             //displayData(result);
-            
-            res = JSON.parse(result);
+
+
+            //res = JSON.parse(result);
+            res = JSON.parse(result).results;
+            document.getElementById("dataShow2").innerHTML = "";
+            //$("#dataShow").html("");
+
+            //var listRes = [res];
+            buildHtmlTable(res, "#dataShow2");
+
+
+
+        }});
+
+}
+
+
+function getTradeInfo() {
+    //var ajaxRequest = new XMLHttpRequest();
+    var info = document.getElementById("info");
+    var url = "R58.jsp?id=" + escape(info.value);
+    //$("#dataShow").append(info.value);
+    //$("#dataShow2").append(party.value);
+    //$("#dataShow2").append(type.value);
+
+    $.ajax({url: url, dataType: "html", success: function (result)
+        {
+            //displayString(result);
+            //displayData(result);
+            //displayString(result);
+
+
+            res = JSON.parse(result).results;
+            //res1 = JSON.parse(res);
+
             document.getElementById("dataShow").innerHTML = "";
             //$("#dataShow").html("");
 
@@ -153,28 +211,10 @@ function getTradeInfo() {
 
 
 
-function test_getTables() {
-
-    /* $('#tables').dropbox(function(){
-     $('dataShow').alert('abc');
-     
-     })
-     */
-
-    var table = document.getElementById("tables");
-    //var table = document.getElementByName("Select Tables");
-    // alert(table.value);
-    //var  data = document.getElementById("dataShow");
-    //data.innerHTML += table.value;
-    //data.insertAdjacentHTML("beforeend",table.value);
-    document.write(table.value);
-
-}
-
-
-
 function load_jsp() {
+
     document.write(document.getElementById("showData").innerHTML = '<object style="height:100%; width:100%" type="text/html" data="landing.jsp" ></object>');
+
     //document.write('<object type="text/html" data="indexR3.jsp" ></object>');
 //    window.location.href = "indexR3.jsp";
 
