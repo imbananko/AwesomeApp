@@ -17,32 +17,23 @@
     String result = "";
     //String result = "<h1>INVALID USER ID AND PASSWORD</h1>";
 
-    if (userId != "" || userId != null) {
-        ConnectionHandler connectionHandler = new ConnectionHandler();
-        User user = new User();
-        UserDao userSearch = new UserDao(connectionHandler.getConnection());
-        user = userSearch.getByPK(userId);
-        validPwd = user.getPassword();
+    ConnectionHandler connectionHandler = new ConnectionHandler();
+    User user = new User();
+    UserDao userSearch = new UserDao(connectionHandler.getConnection());
+    user = userSearch.getByPK(userId);
+    validPwd = user.getPassword();
 
-        if (validPwd.equals(userPwd)) {
+    if (validPwd.equals(userPwd)) {
 
-            result = "true";
+        result = "true";
 
-            out.flush();
-
-            out.print(result);
-
-        } else {
-            out.flush();
-
-            out.print(result);
-        }
-
-    } else {
-        out.flush();
-        out.println(result);
-        out.flush();
     }
+    
+    out.flush();
+
+    out.print(result);
+
+
 %>
 
 
