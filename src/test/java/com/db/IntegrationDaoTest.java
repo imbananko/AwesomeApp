@@ -1,12 +1,14 @@
 package com.db;
 
-import com.db.awesomeapp.dao.*;
+import com.db.awesomeapp.dao.CounterPartyDao;
+import com.db.awesomeapp.dao.DealDao;
+import com.db.awesomeapp.dao.InstrumentDao;
+import com.db.awesomeapp.dao.UserDao;
 import com.db.awesomeapp.models.CounterParty;
 import com.db.awesomeapp.models.Deal;
 import com.db.awesomeapp.models.Instrument;
 import com.db.awesomeapp.models.User;
 import com.db.awesomeapp.mysql.ConnectionHandler;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 

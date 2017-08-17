@@ -4,7 +4,6 @@ import com.db.awesomeapp.dao.AbstractDao;
 import com.db.awesomeapp.dao.InstrumentDao;
 import com.db.awesomeapp.models.Instrument;
 import com.mysql.jdbc.PreparedStatement;
-import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,6 +12,7 @@ import java.sql.ResultSet;
 import java.util.LinkedList;
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;

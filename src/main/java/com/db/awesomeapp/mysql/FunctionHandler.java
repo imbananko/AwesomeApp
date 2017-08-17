@@ -1,15 +1,12 @@
 package com.db.awesomeapp.mysql;
 
 import com.db.awesomeapp.JsonHelper;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import javax.json.stream.JsonGenerationException;
-import java.sql.*;
-import java.util.LinkedList;
-import java.util.List;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 
 public class FunctionHandler {
@@ -20,13 +17,14 @@ public class FunctionHandler {
         this.connection = connection;
     }
 
-    public String getJsonDealInfo(String partyName, String instrumentName, String type) throws SQLException {
-        String sql = "CALL getDealInfo(?, ?, ?)";
+    public String getJsonDealInfo(String partyName, String instrumentName, String type, int top) throws SQLException {
+        String sql = "CALL getDealInfoB21(?, ?, ?, ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, partyName);
             statement.setString(2, instrumentName);
             statement.setString(3, type);
+            statement.setInt(4, top);
             ResultSet rs = statement.executeQuery();
 
             return JsonHelper.resultSetToJson(rs);
@@ -38,7 +36,7 @@ public class FunctionHandler {
     }
 
     public String getJsonAverageBetween(String dateFrom, String dateTo) throws SQLException {
-        String sql = "CALL getAverageBetween(?, ?)";
+        String sql = "CALL getAverageBetweenB21(?, ?)";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, dateFrom);
@@ -54,7 +52,7 @@ public class FunctionHandler {
     }
 
     public String getJsonTradesQuantity() throws SQLException {
-        String sql = "CALL getTradesQuantity()";
+        String sql = "CALL getTradesQuantityB21()";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             ResultSet rs = statement.executeQuery();
@@ -68,7 +66,7 @@ public class FunctionHandler {
     }
 
     public String getJsonRealisedRate() throws SQLException {
-        String sql = "CALL getRealisedRate()";
+        String sql = "CALL getRealisedRateB21()";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             ResultSet rs = statement.executeQuery();
@@ -82,7 +80,7 @@ public class FunctionHandler {
     }
 
     public String getJsonEffectiveRate() throws SQLException {
-        String sql = "CALL getEffectiveRate()";
+        String sql = "CALL getEffectiveRateB21()";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             ResultSet rs = statement.executeQuery();

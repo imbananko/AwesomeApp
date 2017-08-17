@@ -1,9 +1,5 @@
 package com.db;
 
-import com.db.awesomeapp.dao.CounterPartyDao;
-import com.db.awesomeapp.dao.DealDao;
-import com.db.awesomeapp.dao.InstrumentDao;
-import com.db.awesomeapp.dao.UserDao;
 import com.db.awesomeapp.mysql.ConnectionHandler;
 import com.db.awesomeapp.mysql.FunctionHandler;
 import org.junit.Before;
@@ -12,7 +8,6 @@ import org.junit.Test;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class FunctionHandlerTest {
@@ -50,7 +45,7 @@ public class FunctionHandlerTest {
     public void getDealInfoTest() {
         String json = "";
         try {
-            json = functionHandler.getJsonDealInfo("Lina", null, null, 10);
+            json = functionHandler.getJsonDealInfo("Lina", "Eclipse", "S", 10);
         } catch (SQLException e) {
             e.printStackTrace();
         }
