@@ -43,8 +43,8 @@
                 <li><a href="indexR3.jsp">View All Deals</a></li>
                 <li><a href="indexR4.jsp">Relationships</a></li>
                 <li><a href="indexR58.jsp">Analysis</a></li>
-                <li><a href="#">Help</a></li>
-                <li><img src="img/dbLogo.jpg" style="width:30px;height:30px;" /></li>
+                <li><a href="index.html">Logout</a></li>
+                <li><img src="img/dbLogo.jpg" style="width:45px;height:45px;" /></li>
               </ul>
               <form class="navbar-form navbar-right">
                 <input type="text" class="form-control" placeholder="Search...">
@@ -58,7 +58,7 @@
             <div style="background-color: #f5f5f5" class="container">
                 <div class="row text-center">
                     <div class="col-lg-10 mx-auto">
-                        <h2>Search by deal ID</h2>
+                        <h2 style="font-weight:bold">Search by deal ID</h2>
                         <hr class="small">
 
                         <form>
