@@ -35,10 +35,11 @@
 
     </head>
 
-    <body>
+    <body> 
         <!-- Navigation -->
         <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
         <nav id="sidebar-wrapper">
+            <script> testConnection();</script>
             <ul class="sidebar-nav">
                 <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
                 <li class="sidebar-brand">
@@ -48,70 +49,67 @@
                     <a href="#top" onclick=$("#menu-close").click();></a>
                 </li>
                 <li>
-                    <a href="#about" onclick=$("#menu-close").click();>About</a>
+                    <a href="indexR3.jsp" onclick=$("#menu-close").click();>View All Info</a>
                 </li>
                 <li>
-                    <a href="\indexR3" onclick=$("#menu-close").click();>View All Info</a>
+                    <a href="indexR4.jsp" onclick=$("#menu-close").click();>Query For Correlations</a>
                 </li>
                 <li>
-                    <a href="#portfolio" onclick=$("#menu-close").click();>Query For Correlations</a>
-                </li>
-                <li>
-                    <a href="#contact" onclick=$("#menu-close").click();>Some other pages...</a>
+                    <a href="indexR58.jsp" onclick=$("#menu-close").click();>Analysis</a>
                 </li>
             </ul>
         </nav>
 
         <!-- Header -->
         <header id="top" class="header">
+
+            <div class="alert alert-info alert-dismissible" role="alert" style="width:430px; height:50px; float: left">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Congratulations!</strong> You are now connected to the database!
+            </div>
+            
+            <br> <br> <br> <br> <br> <br> <br> <br> <br>
+            
             <div class="text-vertical-center">
-                <h1 style="color:white;">dbTradeViewer</h1>
+                <h1 style="color:#FFFFFF;">dbTradeViewer</h1>
             </div>
-        </header>
+            <hr /> 
+            
+            <div class="container">
+                <div class="login-box">
+                    <div class="main-login main-center">
 
-        
+                        <form class="form-horizontal" method="post" action="/empty.html">
 
-        <div class="container">
-            <br> <br>
-            <div id="showConn">
-                <script> testConnection();</script>
-            </div>
-            <div class="row main">
-                <div class="main-login main-center">
-
-                    <form class="form-horizontal" method="post" action="/empty.html">
-
-                        <div class="form-group">
-                            <label for="username" class="cols-sm-2 control-label">User ID</label>
-                            <div class="cols-sm-10">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" name="username" id="f_userid"  placeholder="Enter your User ID"/>
+                            <div class="form-group">
+                                <label for="username" class="cols-sm-2 control-label" style="color:white">User ID</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                                        <input type="text" class="form-control" name="username" id="f_userid"  placeholder="Enter your User ID"/>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label for="password" class="cols-sm-2 control-label">Password</label>
-                            <div class="cols-sm-10">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                    <input type="password" class="form-control" name="password" id="f_password"  placeholder="Enter your Password"/>
+                            <div class="form-group">
+                                <label for="password" class="cols-sm-2 control-label" style="color:white">Password</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                        <input type="password" class="form-control" name="password" id="f_password"  placeholder="Enter your Password"/>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="form-group ">
-                            <button type="button" class="btn btn-primary btn-lg btn-block login-button" onclick="verifyUser()">Login</button>
-                        </div>
-                        
-                        <hr /> 
-                    </form>
+                            <div class="form-group ">
+                                <button type="button" class="btn btn-primary btn-lg btn-block login-button" onclick="verifyUser()">Login</button>
+                            </div>
+ 
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-
-
+        </header>
 
         <div id="showData"></div>
 

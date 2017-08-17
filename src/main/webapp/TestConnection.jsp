@@ -27,7 +27,7 @@
 
 <!DOCTYPE html>
 <html>
-    <div class="alert alert-info" role="alert">
+    <div class="btn btn-info btn-lg">
         <h3> <%= request.getAttribute("connectionStatus") %> </h3>
     </div>
 </html>

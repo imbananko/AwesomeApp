@@ -4,6 +4,17 @@
     Author     : Richard, Vlad, Jackie 
 --%>
 
+<%@page import="java.util.logging.Logger"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.util.logging.Level"%>
+<%@page import="java.sql.SQLException"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="com.db.awesomeapp.models.CounterParty"%>
+<%@page import="java.sql.Date"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -60,7 +71,6 @@
                     <ul class="nav navbar-nav">
                         <li class="btn btn-default" style="color:black"><a href="indexR58.jsp">Analysis (R5-8)</a></li>
                     </ul>
-
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>     
