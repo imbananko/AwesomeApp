@@ -78,7 +78,6 @@
                                 <option value="counterparty" style="color:black">Counter Party</option>
                             </select>
 
-<<<<<<< HEAD
 
                             
 
